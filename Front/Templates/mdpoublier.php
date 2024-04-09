@@ -28,7 +28,7 @@
     </div>
     <button type="submit">Réinitialiser le mot de passe</button>
     <div class="signup-link">
-      <p>Retour à la <a href="connexion.html" style="color: white;">page de connexion</a>.</p>
+      <p>Retour à la <a href="connexion.php" style="color: white;">page de connexion</a>.</p>
     </div>
   </form>
 </div>

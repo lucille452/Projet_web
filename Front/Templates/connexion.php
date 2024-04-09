@@ -18,12 +18,12 @@
             <label for="password">Mot de passe :</label>
             <input type="password" id="password" name="password" required>
             <div class="forgot-password">
-                <a href="mdpoublier.html">Mot de passe oublié ?</a>
+                <a href="mdpoublier.php">Mot de passe oublié ?</a>
             </div>
         </div>
         <button type="submit">Se connecter</button>
         <div class="signup-link">
-            <p>Vous n'avez pas de compte ? <a href="inscription.html" style="color: white;">Inscrivez-vous ici</a>.</p>
+            <p>Vous n'avez pas de compte ? <a href="inscription.php" style="color: white;">Inscrivez-vous ici</a>.</p>
         </div>
     </form>
 </div>

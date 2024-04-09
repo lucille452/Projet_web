@@ -1,3 +1,7 @@
+<?php
+include "../../Server/Pages/inscription.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,7 @@
 </head>
 <body>
 <div class="container">
-  <form action="connexion.html">
+  <form action="connexion.php">
     <h2>Inscription à GameNexus</h2>
     <div class="input-group">
       <label for="nom">Nom :</label>
@@ -23,6 +27,10 @@
       <input type="email" id="email" name="email" required>
     </div>
     <div class="input-group">
+      <label for="date_naissance">Date de Naissance :</label>
+      <input type="date" id="date_naissance" name="date_naissance" required>
+    </div>
+    <div class="input-group">
       <label for="password">Mot de passe :</label>
       <input type="password" id="password" name="password" required>
     </div>
@@ -32,7 +40,7 @@
     </div>
     <button type="submit">S'inscrire</button>
     <div class="signup-link">
-      <p>Vous avez déjà un compte ? <a href="connexion.html" style="color: white;">Connectez-vous ici</a>.</p>
+      <p>Vous avez déjà un compte ? <a href="connexion.php" style="color: white;">Connectez-vous ici</a>.</p>
     </div>
   </form>
 </div>
