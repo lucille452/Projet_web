@@ -12,7 +12,7 @@ include "../../Server/Pages/inscription.php";
 </head>
 <body>
 <div class="container">
-  <form action="connexion.php">
+  <form action="" method="post">
     <h2>Inscription à GameNexus</h2>
     <div class="input-group">
       <label for="nom">Nom :</label>
@@ -38,7 +38,7 @@ include "../../Server/Pages/inscription.php";
       <label for="confirm_password">Confirmation du mot de passe :</label>
       <input type="password" id="confirm_password" name="confirm_password" required>
     </div>
-    <button type="submit">S'inscrire</button>
+    <input type="submit" name="submit" value="S'inscrire">
     <div class="signup-link">
       <p>Vous avez déjà un compte ? <a href="connexion.php" style="color: white;">Connectez-vous ici</a>.</p>
     </div>

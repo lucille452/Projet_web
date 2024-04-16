@@ -4,7 +4,7 @@ function addMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp) {
     $newMembre = $bdd->prepare("INSERT INTO membres(nom, prenom, adresse_mail, date_naissance, mot_de_passe) VALUES (?,?,?,?,?) ");
     $newMembre->execute([$nom, $prenom, $mail, $dateNaissance, $mdp]);
 
-    header("Location: accueil.php");
+    header("Location: accueil_membre.php");
 }
 
 function deleteMembre($bdd, $id) {

@@ -16,11 +16,11 @@
 <header>
     <nav>
         <ul>
-            <li><a href="accueil.php"><img src="../Image/logo.png"></a><p>GameNexus</p></li>
+            <li><a href="accueil_membre.php"><img src="../Image/logo.png"></a><p>GameNexus</p></li>
             <div>
             <li><a href="panier.php">Panier</a></li>
             <li><a href="profil.php">Profil</a></li>
-            <li><a href="">Déconnexion</a></li>
+            <li><a href="connexion.php">Déconnexion</a></li>
             </div>
         </ul>
     </nav>

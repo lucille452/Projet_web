@@ -47,7 +47,7 @@ h2 {
     text-decoration: none;
 }
 
-button {
+input[type="submit"] {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -56,6 +56,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+input[type="submit"]:hover {
     background-color: #007280;
 }

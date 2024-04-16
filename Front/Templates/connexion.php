@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="#">
+    <form action="" method="post">
         <h2>Connexion à GameNexus</h2>
         <div class="input-group">
             <label for="email">Adresse Email :</label>
@@ -21,7 +21,7 @@
                 <a href="mdpoublier.php">Mot de passe oublié ?</a>
             </div>
         </div>
-        <button type="submit">Se connecter</button>
+        <input type="submit" name="submit" value="Se connecter">
         <div class="signup-link">
             <p>Vous n'avez pas de compte ? <a href="inscription.php" style="color: white;">Inscrivez-vous ici</a>.</p>
         </div>
