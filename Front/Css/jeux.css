@@ -127,6 +127,13 @@ nav ul li img:hover {
 }
 /* End Header */
 
+/* Main */
+main {
+    margin-top: 17vh;
+    color: var(--clr-tertiary);
+}
+/* End Main */
+
 /* Footer */
 footer {
     background: var(--clr-tertiary);

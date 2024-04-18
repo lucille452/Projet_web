@@ -28,7 +28,10 @@
 </header>
 
 <main>
-
+    <h1>Tous les Jeux</h1>
+<!--    afficher liste des jeux-->
+    <button type="button" id="add_jeu_btn">Rajouter un jeu</button>
+    <form action="" method="post" id="add_jeu"></form>
 </main>
 
 <!-- Footer -->
@@ -73,5 +76,11 @@
 </footer>
 <!-- End Footer -->
 
+<script src="../Js/jeu.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        addFormJeu()
+    });
+</script>
 </body>
 </html>
