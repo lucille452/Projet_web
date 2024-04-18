@@ -12,7 +12,11 @@ function addMembreMiddleware($bdd)
 
     if (!empty($nom) && !empty($prenom) && !empty($mail) && !empty($dateNaissance) && !empty($mdp) && !empty($checkMdp)) {
         if ($mdp == $checkMdp) {
-            addMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp);
+            if ($mail == "admin@gamenexus.com") {
+                addAdmin($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp);
+            } else {
+                addMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp);
+            }
         } else {
             echo "Les mots de passe ne correspondent pas.";
         }

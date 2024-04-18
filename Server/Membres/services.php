@@ -11,3 +11,10 @@ function deleteMembre($bdd, $id) {
     $delete = $bdd->prepare("DELETE FROM membres WHERE id=?");
     $delete->execute([$id]);
 }
+
+function addAdmin($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp) {
+    $newAdmin = $bdd->prepare("INSERT INTO admin(nom, prenom, adresse_mail, date_naissance, mot_de_passe) VALUES (?,?,?,?,?) ");
+    $newAdmin->execute([$nom, $prenom, $mail, $dateNaissance, $mdp]);
+
+    header("Location: accueil_membre.php");
+}

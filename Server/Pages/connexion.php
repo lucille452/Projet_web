@@ -9,8 +9,12 @@ if (isset($_POST["submit"])) {
     $user = $bdd->prepare("SELECT * FROM membres WHERE adresse_mail=? AND mot_de_passe=?");
     $user->execute([$mail, $mdp]);
 
+    $admin = $bdd->prepare("SELECT * FROM admin WHERE adresse_mail=? AND mot_de_passe=?");
+    $admin->execute([$mail, $mdp]);
+
     // Utilisation de fetch pour obtenir les données de l'utilisateur
     $userData = $user->fetch();
+    $adminData = $admin->fetch();
 
     // Vérification si l'utilisateur existe
     if ($userData) {
@@ -21,7 +25,9 @@ if (isset($_POST["submit"])) {
             $_SESSION['mdp'] = $mdp;
             header("Location: accueil_membre.php");
             exit(); // Terminer le script après la redirection
-        } else {
+        }
+    } else if ($adminData) {
+        if ($mail == "admin@gamenexus.com"){
             header("Location: accueil_admin.php");
             exit(); // Terminer le script après la redirection
         }
