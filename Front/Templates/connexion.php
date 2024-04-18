@@ -1,3 +1,7 @@
+<?php
+include '../../Server/Pages/connexion.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
