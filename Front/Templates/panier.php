@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accueil - GameNexus</title>
+    <title>Panier - GameNexus</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../Css/accueil.css" />
+    <link rel="stylesheet" href="../Css/panier.css" />
     <style>
 
     </style>
@@ -18,8 +18,8 @@
         <ul>
             <li><a href="accueil_membre.php"><img src="../Image/logo.png"></a><p>GameNexus</p></li>
             <div>
-                <li><a href="accueil_membre.php" class="active">Accueil</a></li>
-                <li><a href="panier.php">Panier</a></li>
+                <li><a href="accueil_membre.php">Accueil</a></li>
+                <li><a href="panier.php" class="active">Panier</a></li>
                 <li><a href="profil.php">Profil</a></li>
                 <li><a href="connexion.php">Déconnexion</a></li>
             </div>
@@ -28,15 +28,7 @@
 </header>
 
 <main>
-    <form method="post">
-        <input name="search" placeholder="Rechercher" type="text">
-        <button type="submit"></button>
-    </form>
-<article>
-    <?php
-    include "../../Server/afficher_jeux.php";
-    ?>
-</article>
+
 </main>
 
 <!-- Footer -->

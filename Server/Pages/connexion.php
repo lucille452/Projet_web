@@ -16,6 +16,9 @@ if (isset($_POST["submit"])) {
     if ($userData) {
         // Vérification du type d'utilisateur
         if ($mail != "admin@gamenexus.com") {
+            session_start();
+            $_SESSION['mail'] = $mail;
+            $_SESSION['mdp'] = $mdp;
             header("Location: accueil_membre.php");
             exit(); // Terminer le script après la redirection
         } else {
