@@ -141,6 +141,10 @@ main {
     margin-top: 10px;
 }
 
+#add_jeu_btn:hover {
+    cursor: pointer;
+}
+
 #add_jeu {
     max-width: 300px;
     margin-top: 20px;
@@ -165,6 +169,11 @@ main {
     padding: 5px;
     border-radius: 3px;
     color: var(--clr-primary);
+    margin-left: 15px;
+}
+
+#add_jeu input[type=submit]:hover {
+    cursor: pointer;
 }
 /* End Main */
 

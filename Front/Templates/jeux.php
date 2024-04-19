@@ -1,3 +1,7 @@
+<?php
+include '../../Server/Pages/jeux.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

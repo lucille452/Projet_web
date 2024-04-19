@@ -9,6 +9,7 @@ function addFormJeu() {
         const nom = document.createElement('input')
         nom.type = 'text'
         nom.name = 'nom'
+        nom.required = true
 
         const labelDescription = document.createElement('label')
         labelDescription.textContent = 'Description :'
@@ -16,6 +17,7 @@ function addFormJeu() {
         const description = document.createElement('input')
         description.type = 'text'
         description.name = 'description'
+        description.required = true
 
         const labelQuantite = document.createElement('label')
         labelQuantite.textContent = 'Quantité :'
@@ -23,6 +25,7 @@ function addFormJeu() {
         const quantite = document.createElement('input')
         quantite.type = 'number'
         quantite.name = 'quantite'
+        quantite.required = true
 
         const labelPrix = document.createElement('label')
         labelPrix.textContent = 'Prix :'
@@ -30,13 +33,8 @@ function addFormJeu() {
         const prix = document.createElement('input')
         prix.type = 'number'
         prix.name = 'prix'
-
-        const labelCode = document.createElement('label')
-        labelCode.textContent = "Code d'activation :"
-
-        const code = document.createElement('input')
-        code.type = 'number'
-        code.name = 'code'
+        prix.required = true
+        prix.step = '0.01'
 
         const submit = document.createElement('input')
         submit.type = 'submit'
@@ -51,8 +49,6 @@ function addFormJeu() {
         form.appendChild(quantite)
         form.appendChild(labelPrix)
         form.appendChild(prix)
-        form.appendChild(labelCode)
-        form.appendChild(code)
         form.appendChild(submit)
     });
 }
