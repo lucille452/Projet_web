@@ -21,7 +21,7 @@ html {
 
 body {
     background: #d9d9d9;
-    color: var(--clr-secondary);
+    color: var(--clr-tertiary);
     overflow-x: hidden;
 }
 
@@ -65,8 +65,6 @@ nav {
     width: 100%;
     position: fixed;
     top: 0;
-    background: var(--clr-tertiary);
-    box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.22);
     z-index: 22;
 }
 
@@ -100,9 +98,9 @@ nav ul li {
 
 nav ul li a {
     font-size: 20px;
-    padding: 7px 13px;
+    padding: 3px 13px;
     text-decoration: none;
-    color: var(--clr-secondary);
+    color: var(--clr-tertiary);
     align-items: center;
 }
 
@@ -123,14 +121,12 @@ nav ul li img:hover {
 }
 
 .active {
-    border-bottom: 2px solid var(--clr-secondary);
+    border-bottom: 2px solid var(--clr-tertiary);
 }
 /* End Header */
 
 /* Footer */
 footer {
-    background: var(--clr-tertiary);
-    color: var(--clr-secondary);
     padding: 10px 0;
     position: fixed;
     bottom: 0;

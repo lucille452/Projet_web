@@ -32,7 +32,7 @@ function addFormJeu() {
         prix.name = 'prix'
 
         const labelCode = document.createElement('label')
-        labelCode.textContent = "Code d'activation"
+        labelCode.textContent = "Code d'activation :"
 
         const code = document.createElement('input')
         code.type = 'number'
