@@ -11,9 +11,6 @@ include '../../Server/Pages/jeux.php';
     <title>Jeux - GameNexus</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../Css/jeux.css" />
-    <style>
-
-    </style>
 </head>
 <body>
 
@@ -34,6 +31,13 @@ include '../../Server/Pages/jeux.php';
 <main>
     <h1>Tous les Jeux</h1>
 <!--    afficher liste des jeux-->
+    <section>
+    <?php
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
+
+    getJeux($bdd);
+    ?>
+    </section>
     <button type="button" id="add_jeu_btn">Rajouter un jeu</button>
     <form action="" method="post" id="add_jeu"></form>
 </main>
