@@ -63,9 +63,9 @@ body {
 nav {
     height: 60px;
     width: 100%;
+    background-color: #d9d9d9;
     position: fixed;
     top: 0;
-    z-index: 22;
 }
 
 label.logo {
@@ -128,8 +128,18 @@ nav ul li img:hover {
 /* Main */
 main {
     margin-top: 17vh;
+    margin-bottom: 17vh;
     color: var(--clr-tertiary);
     margin-left: 10vh;
+}
+
+.jeu {
+    margin-top: 20px;
+}
+
+.jeu div {
+    display: block;
+    color: var(--clr-primary);
 }
 
 #add_jeu_btn {
@@ -180,7 +190,6 @@ main {
 /* Footer */
 footer {
     padding: 10px 0;
-    position: fixed;
     bottom: 0;
     width: 100%;
 }

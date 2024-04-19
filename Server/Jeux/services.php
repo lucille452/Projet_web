@@ -23,7 +23,7 @@ function getJeux($bdd)
     $jeux = $bdd->query("SELECT * FROM jeux");
 
     while ($row = $jeux->fetch(PDO::FETCH_ASSOC)) {
-        echo "<div><h2>". $row['nom'] ."</h2>";
+        echo "<div class='jeu'><h2>". $row['nom'] ."</h2>";
         echo "<div><h3>Quantité : ". $row['quantité'] ."</h3>";
         echo "<h3>Prix : ". $row['prix'] ."€</h3>";
         echo "<h3>Code d'Activation : ". $row['code_activation'] ."</h3></div>";
