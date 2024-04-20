@@ -125,6 +125,49 @@ nav ul li img:hover {
 }
 /* End Header */
 
+/* Main */
+main {
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+
+h1 {
+    font-size: 27px;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+/* Style du tableau */
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* Style des cellules */
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--clr-tertiary);
+}
+
+/* Style de l'en-tête */
+th {
+    background-color: var(--clr-primary);
+}
+
+/* Style des lignes impaires */
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Style des lignes au survol */
+tr:hover {
+    background-color: #f1f1f1;
+}
+/* End Main */
+
 /* Footer */
 footer {
     padding: 10px 0;

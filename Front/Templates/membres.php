@@ -1,3 +1,7 @@
+<?php
+include "../../Server/Pages/membres.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +32,24 @@
 </header>
 
 <main>
-
+    <h1>Tous les Membres</h1>
+    <table>
+        <thead>
+        <tr>
+            <th scope='col'>Nom</th>
+            <th scope='col'>Prénom</th>
+            <th scope='col'>Adresse mail</th>
+            <th scope='col'>Date de naissance</th>
+            <th scope='col'>Solde</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+            $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
+            getMembres($bdd);
+        ?>
+        </tbody>
+    </table>
 </main>
 
 <!-- Footer -->
