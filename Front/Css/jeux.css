@@ -130,16 +130,26 @@ main {
     margin-top: 17vh;
     margin-bottom: 17vh;
     color: var(--clr-tertiary);
-    margin-left: 10vh;
+    margin-left: 5%;
+    width: 90%;
 }
 
 .jeu {
     margin-top: 20px;
 }
 
-.jeu div {
+.jeu .precision {
     display: block;
     color: var(--clr-primary);
+}
+
+.jeu .crud button:hover{
+    cursor: pointer;
+}
+
+.jeu .crud img {
+    width: 20px;
+    height: 20px;
 }
 
 #add_jeu_btn {
