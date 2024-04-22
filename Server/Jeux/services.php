@@ -62,7 +62,7 @@ function dialogModifier($nom, $quantite, $prix, $code, $description, $id)
                   <input type='number' name='quantite' value='". $quantite ."'>
                   <input type='number' name='prix' value='". $prix ."'>
                   <input type='number' name='code' value='". $code ."'>
-                  <input type='text' name='description' value='". $description ."'>
+                  <input type='text' name='description' value='". htmlspecialchars($description, ENT_QUOTES) ."'>
                 <input type='submit' name='modifier' value='Enregistrer'>
               </form>
           </dialog>";

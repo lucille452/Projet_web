@@ -207,9 +207,11 @@ dialog {
     transform: translate(-50%, -50%); /* Centre le dialogue au milieu de la page */
 
     /* Propriétés pour l'apparence et la réactivité */
+    color: var(--clr-tertiary);
     background-color: white; /* Définit la couleur de fond */
     padding: 20px; /* Ajoute de l'espace interne */
     border-radius: 8px; /* Ajoute des bords arrondis */
+    border: 3px solid var(--clr-tertiary);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour le relief */
     max-width: 90%; /* Empêche le dialogue d'être trop large */
     max-height: 90%; /* Empêche le dialogue d'être trop haut */
@@ -222,6 +224,28 @@ dialog button {
     background: none; /* Pas de fond pour le bouton */
     border: none; /* Pas de bordure pour le bouton */
     cursor: pointer; /* Change le curseur en pointeur */
+}
+
+dialog input[type=submit] {
+    background-color: var(--clr-primary);
+    border: none;
+    color: var(--clr-secondary);
+    padding: 10px;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+dialog input[type=submit]:hover {
+    cursor: pointer;
+}
+
+dialog input[type=text], dialog input[type=number] {
+    border: none;
+    border-bottom: 2px solid var(--clr-primary);
+    background: none;
+    outline: none;
+    padding: 3px;
+    margin-bottom: 5px;
 }
 
 dialog img {
