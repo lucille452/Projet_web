@@ -195,6 +195,51 @@ main {
 #add_jeu input[type=submit]:hover {
     cursor: pointer;
 }
+
+/* Dialog */
+
+/* CSS pour le centrage des dialogues */
+dialog {
+    /* Propriétés de centrage */
+    position: fixed; /* Fixe le dialogue à un endroit spécifique */
+    top: 50%; /* Positionne au milieu verticalement */
+    left: 50%; /* Positionne au milieu horizontalement */
+    transform: translate(-50%, -50%); /* Centre le dialogue au milieu de la page */
+
+    /* Propriétés pour l'apparence et la réactivité */
+    background-color: white; /* Définit la couleur de fond */
+    padding: 20px; /* Ajoute de l'espace interne */
+    border-radius: 8px; /* Ajoute des bords arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour le relief */
+    max-width: 90%; /* Empêche le dialogue d'être trop large */
+    max-height: 90%; /* Empêche le dialogue d'être trop haut */
+    overflow-y: auto; /* Permet le défilement si le contenu dépasse la hauteur */
+    z-index: 100; /* S'assure que le dialogue est au-dessus des autres éléments */
+}
+
+/* CSS pour le bouton de fermeture */
+dialog button {
+    background: none; /* Pas de fond pour le bouton */
+    border: none; /* Pas de bordure pour le bouton */
+    cursor: pointer; /* Change le curseur en pointeur */
+}
+
+dialog img {
+    width: 15px;
+    height: 15px;
+}
+
+/* CSS pour rendre les dialogues réactifs */
+@media (max-width: 600px) {
+    dialog {
+        max-width: 100%; /* Permet au dialogue de s'étendre jusqu'aux bords de l'écran */
+        padding: 10px; /* Réduit l'espace interne sur les petits écrans */
+    }
+}
+
+
+/* End Dialog*/
+
 /* End Main */
 
 /* Footer */
