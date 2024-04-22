@@ -7,3 +7,11 @@ function addJeuController($bdd)
         addJeuMiddleware($bdd);
     }
 }
+
+
+function deleteJeuController($bdd)
+{
+    if (isset($_POST['supprimer'])) {
+        deleteJeuMiddleware($bdd);
+    }
+}

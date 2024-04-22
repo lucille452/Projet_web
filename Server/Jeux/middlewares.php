@@ -14,3 +14,14 @@ function addJeuMiddleware($bdd)
         echo 'Veuillez remplir tous les champs';
     }
 }
+
+function deleteJeuMiddleware($bdd)
+{
+    $id = $_POST['id'];
+
+    if (!empty($id)) {
+        deleteJeu($bdd, $id);
+    } else {
+        echo "ID non trouvé";
+    }
+}
