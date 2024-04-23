@@ -43,12 +43,12 @@ function getJeux($bdd)
 
 function dialogSupprimer($nom, $id)
 {
-    echo "<dialog id='supDialog". $id ."'>
+    echo "<dialog id='supDialog". $id . "' style='color: #CA7AD0FF;'>
               <form action='' method='post'>
                   <button onclick='closeSupDialog()'>
                       <img src='../../Front/Image/fermer.png'>
                   </button>
-                  <h4>Voulez-vous supprimer le jeu ". $nom ." ?</h4>
+                  <h4>Voulez-vous supprimer le jeu " . $nom ." ?</h4>
                   <input type='hidden' name='id' value='". $id ."'>
                 <input type='submit' name='supprimer' value='Supprimer'>
               </form>
@@ -57,18 +57,23 @@ function dialogSupprimer($nom, $id)
 
 function dialogModifier($nom, $quantite, $prix, $code, $description, $id)
 {
-    echo  "<dialog id='modDialog". $id ."'>
+    echo  "<dialog id='modDialog". $id ."' style='color: #e2b946;'>
               <form action='' method='post'>
                   <button onclick='closeModDialog()'>
                       <img src='../../Front/Image/fermer.png'>
                   </button>
                   <h4>Modifier le jeu ". $nom ."</h4>
                   <input type='hidden' name='id' value='". $id ."'>
-                  <input type='text' name='nom' value='". $nom ."'>
-                  <input type='number' name='quantite' value='". $quantite ."'>
-                  <input type='number' name='prix' value='". $prix ."'>
-                  <input type='number' name='code' value='". $code ."'>
-                  <input type='text' name='description' value='". htmlspecialchars($description, ENT_QUOTES) ."'>
+                  <label><b>Nom :</b></label></br>
+                  <input type='text' name='nom' value='". $nom ."'></br>
+                  <label><b>Quantité :</b></label></br>
+                  <input type='number' name='quantite' value='". $quantite ."'></br>
+                  <label><b>Prix :</b></label></br>
+                  <input type='number' name='prix' value='". $prix ."'></br>
+                  <label><b>Code d'Activation :</b></label></br>
+                  <input type='number' name='code' value='". $code ."'></br>
+                  <label><b>Description :</b></label></br>
+                  <textarea name='description' rows='8' cols='90'>".htmlspecialchars($description, ENT_QUOTES)."</textarea>
                 <input type='submit' name='modifier' value='Enregistrer'>
               </form>
           </dialog>";

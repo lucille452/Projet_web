@@ -239,12 +239,17 @@ dialog input[type=submit]:hover {
     cursor: pointer;
 }
 
-dialog input[type=text], dialog input[type=number] {
+dialog input[type=text], dialog input[type=number], textarea {
     border: none;
     border-bottom: 2px solid var(--clr-primary);
     background: none;
     outline: none;
     padding: 3px;
+    margin-bottom: 5px;
+}
+
+h4{
+    text-align: center;
     margin-bottom: 5px;
 }
 
