@@ -7,6 +7,12 @@ function addJeu($bdd, $nom, $description, $quantite, $prix)
     $newJeux->execute([$nom, $description, $quantite, $prix, $codeActivation]);
 }
 
+function updateJeu($bdd, $nom, $description, $quantite, $prix, $code, $id)
+{
+    $updateJeu = $bdd->prepare("UPDATE jeux SET nom=?, description=?, quantité=?, prix=?, code_activation=? WHERE id=?");
+    $updateJeu->execute([$nom, $description, $quantite, $prix, $code, $id]);
+}
+
 function deleteJeu($bdd, $id)
 {
     $deleteJeux = $bdd->prepare("DELETE FROM jeux WHERE id=?");

@@ -9,6 +9,14 @@ function addJeuController($bdd)
 }
 
 
+function updateJeuController($bdd)
+{
+    if (isset($_POST['modifier'])) {
+        updateJeuMiddleware($bdd);
+    }
+}
+
+
 function deleteJeuController($bdd)
 {
     if (isset($_POST['supprimer'])) {
