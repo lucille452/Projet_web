@@ -196,6 +196,11 @@ main {
     cursor: pointer;
 }
 
+section button{
+    background: none;
+    border: none;
+}
+
 /* Dialog */
 
 /* CSS pour le centrage des dialogues */
