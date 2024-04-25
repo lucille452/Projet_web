@@ -10,19 +10,19 @@ include '../../Server/Pages/jeux.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jeux - GameNexus</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../Css/jeux.css" />
+    <link rel="stylesheet" href="../../Css/jeux.css" />
 </head>
 <body>
 
 <header>
     <nav>
         <ul>
-            <li><a href="accueil_admin.php"><img src="../Image/logo.png"></a><p>GameNexus</p></li>
+            <li><a href="accueil_admin.php"><img src="../../Image/logo.png"></a><p>GameNexus</p></li>
             <div>
                 <li><a href="accueil_admin.php">Accueil</a></li>
                 <li><a href="membres.php">Membres</a></li>
                 <li><a href="jeux.php" class="active">Jeux</a></li>
-                <li><a href="connexion.php">Déconnexion</a></li>
+                <li><a href="../Global_page/connexion.php">Déconnexion</a></li>
             </div>
         </ul>
     </nav>
@@ -41,7 +41,7 @@ include '../../Server/Pages/jeux.php';
     <form action="" method="post" id="add_jeu"></form>
 </main>
 
-<script src="../Js/jeu.js"></script>
+<script src="../../Js/jeu.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         addFormJeu()

@@ -10,7 +10,7 @@ include "../../Server/Pages/accueil_admin.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accueil - GameNexus</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../Css/accueil_admin.css" />
+    <link rel="stylesheet" href="../../Css/accueil_admin.css" />
     <style>
 
     </style>
@@ -20,12 +20,12 @@ include "../../Server/Pages/accueil_admin.php";
 <header>
     <nav>
         <ul>
-            <li><a href="accueil_admin.php"><img src="../Image/logo.png"></a><p>GameNexus</p></li>
+            <li><a href="accueil_admin.php"><img src="../../Image/logo.png"></a><p>GameNexus</p></li>
             <div>
                 <li><a href="accueil_admin.php" class="active">Accueil</a></li>
                 <li><a href="membres.php">Membres</a></li>
                 <li><a href="jeux.php">Jeux</a></li>
-                <li><a href="connexion.php">Déconnexion</a></li>
+                <li><a href="../Global_page/connexion.php">Déconnexion</a></li>
             </div>
         </ul>
     </nav>
@@ -45,13 +45,13 @@ include "../../Server/Pages/accueil_admin.php";
                 <h3>au total</h3>
             </div>
             <div class="info first">
-                <img src="../../Front/Image/vente.png">
+                <img src="../../Image/vente.png">
                 <h3>ventes</h3>
             </div>
         </div>
         <div class="line">
             <div class="info second">
-                <img src="../../Front/Image/sac-dargent.png">
+                <img src="../../Image/sac-dargent.png">
                 <h3>ces 7 derniers jours</h3>
             </div>
             <div class="info second">

@@ -8,7 +8,7 @@ include "../../Server/Pages/inscription.php";
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inscription - GameNexus</title>
-  <link rel="stylesheet" href="../Css/conn_insc_mdpo.css">
+  <link rel="stylesheet" href="../../Css/conn_insc_mdpo.css">
 </head>
 <body>
 <div class="container">
