@@ -36,6 +36,14 @@ function addFormJeu() {
         prix.required = true
         prix.step = '0.01'
 
+        let labelImage = document.createElement('label')
+        labelImage.textContent = 'Ajouter une image :'
+
+        let image = document.createElement('input')
+        image.type = 'file'
+        image.name = 'image'
+        image.accept = 'image/*'
+
         let submit = document.createElement('input')
         submit.type = 'submit'
         submit.name = 'submit'
@@ -49,6 +57,8 @@ function addFormJeu() {
         form.appendChild(quantite)
         form.appendChild(labelPrix)
         form.appendChild(prix)
+        form.appendChild(labelImage)
+        form.appendChild(image)
         form.appendChild(submit)
     });
 }

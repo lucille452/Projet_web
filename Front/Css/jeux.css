@@ -205,30 +205,28 @@ section button{
 
 /* CSS pour le centrage des dialogues */
 dialog {
-    /* Propriétés de centrage */
-    position: fixed; /* Fixe le dialogue à un endroit spécifique */
-    top: 50%; /* Positionne au milieu verticalement */
-    left: 50%; /* Positionne au milieu horizontalement */
-    transform: translate(-50%, -50%); /* Centre le dialogue au milieu de la page */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-    /* Propriétés pour l'apparence et la réactivité */
     color: var(--clr-tertiary);
-    background-color: white; /* Définit la couleur de fond */
-    padding: 20px; /* Ajoute de l'espace interne */
-    border-radius: 8px; /* Ajoute des bords arrondis */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
     border: 3px solid var(--clr-tertiary);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour le relief */
-    max-width: 90%; /* Empêche le dialogue d'être trop large */
-    max-height: 90%; /* Empêche le dialogue d'être trop haut */
-    overflow-y: auto; /* Permet le défilement si le contenu dépasse la hauteur */
-    z-index: 100; /* S'assure que le dialogue est au-dessus des autres éléments */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    z-index: 100;
 }
 
 /* CSS pour le bouton de fermeture */
 dialog button {
-    background: none; /* Pas de fond pour le bouton */
-    border: none; /* Pas de bordure pour le bouton */
-    cursor: pointer; /* Change le curseur en pointeur */
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 dialog input[type=submit] {
@@ -266,8 +264,8 @@ dialog img {
 /* CSS pour rendre les dialogues réactifs */
 @media (max-width: 600px) {
     dialog {
-        max-width: 100%; /* Permet au dialogue de s'étendre jusqu'aux bords de l'écran */
-        padding: 10px; /* Réduit l'espace interne sur les petits écrans */
+        max-width: 100%;
+        padding: 10px;
     }
 }
 
@@ -320,18 +318,18 @@ footer ul li {
 
 /* Scrollbar pour Chrome, Edge, et Safari */
 ::-webkit-scrollbar {
-    width: 12px; /* Largeur de la scrollbar verticale */
-    height: 12px; /* Hauteur de la scrollbar horizontale */
+    width: 12px;
+    height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #d9d9d9; /* Couleur de fond du track (la zone de la scrollbar) */
-    border-radius: 6px; /* Coins arrondis du track */
+    background: #d9d9d9;
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--clr-tertiary); /* Couleur de la poignée (thumb) */
-    border-radius: 6px; /* Coins arrondis de la poignée */
+    background: var(--clr-tertiary);
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

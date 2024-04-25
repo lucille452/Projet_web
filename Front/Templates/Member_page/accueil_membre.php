@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accueil - GameNexus</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../Css/accueil_membre.css" />
+    <link rel="stylesheet" href="../../Css/accueil_membre.css" />
     <style>
 
     </style>
@@ -16,12 +16,12 @@
 <header>
     <nav>
         <ul>
-            <li><a href="accueil_membre.php"><img src="../Image/logo.png"></a><p>GameNexus</p></li>
+            <li><a href="accueil_membre.php"><img src="../../Image/logo.png"></a><p>GameNexus</p></li>
             <div>
                 <li><a href="accueil_membre.php" class="active">Accueil</a></li>
                 <li><a href="panier.php">Panier</a></li>
                 <li><a href="profil.php">Profil</a></li>
-                <li><a href="connexion.php">Déconnexion</a></li>
+                <li><a href="../Global_page/connexion.php">Déconnexion</a></li>
             </div>
         </ul>
     </nav>
@@ -34,7 +34,7 @@
     </form>
 <article>
     <?php
-    include "../../Server/afficher_jeux.php";
+    include "../../../Server/afficher_jeux.php";
     ?>
 </article>
 </main>

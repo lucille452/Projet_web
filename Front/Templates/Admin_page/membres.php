@@ -1,5 +1,5 @@
 <?php
-include "../../Server/Pages/membres.php";
+include "../../../Server/Pages/membres.php";
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ include "../../Server/Pages/membres.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Membres - GameNexus</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../Css/membres.css" />
+    <link rel="stylesheet" href="../../Css/membres.css" />
     <style>
 
     </style>
@@ -20,12 +20,12 @@ include "../../Server/Pages/membres.php";
 <header>
     <nav>
         <ul>
-            <li><a href="accueil_admin.php"><img src="../Image/logo.png"></a><p>GameNexus</p></li>
+            <li><a href="accueil_admin.php"><img src="../../Image/logo.png"></a><p>GameNexus</p></li>
             <div>
                 <li><a href="accueil_admin.php">Accueil</a></li>
                 <li><a href="membres.php" class="active">Membres</a></li>
                 <li><a href="jeux.php">Jeux</a></li>
-                <li><a href="connexion.php">Déconnexion</a></li>
+                <li><a href="../Global_page/connexion.php">Déconnexion</a></li>
             </div>
         </ul>
     </nav>
