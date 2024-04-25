@@ -7,9 +7,7 @@
     <title>Profil - GameNexus</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../../Css/profil.css" />
-    <style>
-
-    </style>
+    <script src="../../Js/profil.js"></script>
 </head>
 <body>
 
@@ -28,7 +26,58 @@
 </header>
 
 <main>
+    <section class="section">
+        <div class="container">
+            <h1>Profil</h1>
+            <div class="profile-info">
+                <!-- Informations utilisateur -->
+                <p class="info-item">Nom: <span id="nom">Nom de l'utilisateur</span></p>
+                <p class="info-item">Prénom: <span id="prenom">Prénom de l'utilisateur</span></p>
+                <p class="info-item">Adresse email: <span id="email">Email de l'utilisateur</span></p>
+                <p class="info-item">Date de naissance: <span id="dob">Date de naissance de l'utilisateur</span></p>
+                <p class="info-item">Solde: <span id="solde">0</span> €</p> <!-- Ajout du solde -->
+            </div>
+            <div class="button-container">
+                <!-- Boutons de recharge avec confirmation -->
+                <button onclick="rechargerSolde(10)">+10 €</button>
+                <button onclick="rechargerSolde(20)">+20 €</button>
+                <button onclick="rechargerSolde(50)">+50 €</button>
+                <button onclick="rechargerSolde(100)">+100 €</button>
+            </div>
+            <button id="btnModifier"><img src="../../Image/bouton-modifier.png" > Modifier</button>
+        </div>
+    </section>
 
+    <!-- Inputs pour la modification des informations -->
+    <section id="sectionModifier" class="section" style="display: none;">
+        <div class="container">
+            <h2>Modifier vos informations</h2>
+            <form id="formModifier">
+                <label for="newNom">Nouveau nom:</label>
+                <input type="text" id="newNom" name="newNom"><br><br>
+
+                <label for="newPrenom">Nouveau prénom:</label>
+                <input type="text" id="newPrenom" name="newPrenom"><br><br>
+
+                <label for="newEmail">Nouvelle adresse email:</label>
+                <input type="email" id="newEmail" name="newEmail"><br><br>
+
+                <label for="newDOB">Nouvelle date de naissance:</label>
+                <input type="date" id="newDOB" name="newDOB"><br><br>
+
+                <label for="newPassword">Nouveau mot de passe:</label>
+                <input type="password" id="newPassword" name="newPassword"><br><br>
+
+                <label for="confirmPassword">Confirmez le nouveau mot de passe:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+
+                <div class="button-container">
+                    <input type="submit" value="Enregistrer">
+                    <button id="btnRetour">Retour</button>
+                </div>
+            </form>
+        </div>
+    </section>
 </main>
 
 <!-- Footer -->
@@ -62,7 +111,7 @@
                 <li>Account</li>
                 <li>Support Center</li>
                 <li>Feedback</li>
-                <li>Suggession</li>
+                <li>Suggestion</li>
             </ul>
         </div>
     </div>

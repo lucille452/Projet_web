@@ -34,7 +34,7 @@
     </form>
 <article>
     <?php
-    include "../../Server/afficher_jeux.php";
+    include "../../../Server/afficher_jeux.php";
     ?>
 </article>
 </main>
