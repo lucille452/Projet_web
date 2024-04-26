@@ -42,7 +42,8 @@ function addFormJeu() {
         let image = document.createElement('input')
         image.type = 'file'
         image.name = 'image'
-        image.accept = 'image/*'
+        image.accept = '.jpg'
+        image.required = true
 
         let submit = document.createElement('input')
         submit.type = 'submit'

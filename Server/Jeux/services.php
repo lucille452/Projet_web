@@ -7,6 +7,45 @@ function addJeu($bdd, $nom, $description, $quantite, $prix)
     $newJeux->execute([$nom, $description, $quantite, $prix, $codeActivation]);
 }
 
+function addImage($bdd) {
+    $requete = $bdd->query("SELECT id FROM jeux ORDER BY id DESC LIMIT 1");
+
+    if ($requete) {
+        $resultat = $requete->fetch();
+        if ($resultat && isset($resultat[0])) {
+            $id = $resultat[0]; // Extraire l'ID
+
+            $chemin = "../../../Front/Image/Jeu/";
+            $image = "jeu" . $id . ".jpg";
+            $file = $chemin . $image;
+
+            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                $contenu = file_get_contents($_FILES['image']['tmp_name']);
+
+                file_put_contents($file, $contenu);
+            } else {
+                echo "Erreur lors du téléchargement de l'image.";
+            }
+        } else {
+            echo "Aucun ID trouvé.";
+        }
+    } else {
+        echo "Erreur lors de la requête SQL.";
+    }
+}
+
+
+//function addImage($bdd)
+//{
+//    $requete = $bdd->query("SELECT id FROM jeux ORDER BY id DESC LIMIT 1");
+//    $id = ($requete->fetch())[0];
+//    $chemin = "../../../Front/Image/Jeu/";
+//    $image = "jeu". $id;
+//    $file = $chemin . $image;
+//    echo $file ."\n";
+//    file_put_contents($file, $_FILES['image']);
+//}
+
 function updateJeu($bdd, $nom, $description, $quantite, $prix, $code, $id)
 {
     $updateJeu = $bdd->prepare("UPDATE jeux SET nom=?, description=?, quantité=?, prix=?, code_activation=? WHERE id=?");
