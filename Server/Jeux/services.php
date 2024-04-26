@@ -34,18 +34,6 @@ function addImage($bdd) {
     }
 }
 
-
-//function addImage($bdd)
-//{
-//    $requete = $bdd->query("SELECT id FROM jeux ORDER BY id DESC LIMIT 1");
-//    $id = ($requete->fetch())[0];
-//    $chemin = "../../../Front/Image/Jeu/";
-//    $image = "jeu". $id;
-//    $file = $chemin . $image;
-//    echo $file ."\n";
-//    file_put_contents($file, $_FILES['image']);
-//}
-
 function updateJeu($bdd, $nom, $description, $quantite, $prix, $code, $id)
 {
     $updateJeu = $bdd->prepare("UPDATE jeux SET nom=?, description=?, quantité=?, prix=?, code_activation=? WHERE id=?");

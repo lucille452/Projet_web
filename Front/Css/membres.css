@@ -166,6 +166,16 @@ tr:nth-child(odd) {
 tr:hover {
     background-color: #f1f1f1;
 }
+
+img {
+    width: 20px;
+    height: 20px;
+}
+
+button {
+    border: none;
+    background: none;
+}
 /* End Main */
 
 /* Footer */
@@ -212,18 +222,18 @@ footer ul li {
 
 /* Scrollbar pour Chrome, Edge, et Safari */
 ::-webkit-scrollbar {
-    width: 12px; /* Largeur de la scrollbar verticale */
-    height: 12px; /* Hauteur de la scrollbar horizontale */
+    width: 12px;
+    height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #d9d9d9; /* Couleur de fond du track (la zone de la scrollbar) */
-    border-radius: 6px; /* Coins arrondis du track */
+    background: #d9d9d9;
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--clr-tertiary); /* Couleur de la poignée (thumb) */
-    border-radius: 6px; /* Coins arrondis de la poignée */
+    background: var(--clr-tertiary);
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
