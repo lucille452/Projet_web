@@ -53,5 +53,13 @@ include "../../../Server/Pages/membres.php";
     </table>
 </main>
 
+<script src="../../Js/membres.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        dialog()
+        closeDialog()
+    });
+</script>
+
 </body>
 </html>

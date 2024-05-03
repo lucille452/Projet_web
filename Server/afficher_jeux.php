@@ -17,7 +17,7 @@ $items = range($offset + 1, min($totalItems, $offset + $itemsPerPage));
 // Display items for the current page
 echo "<ul>";
 foreach ($items as $item) {
-    echo "<li><a><img src='../Image/jeu". $item .".jpg'></a></li>";
+    echo "<li><a><img src='../../Image/Jeu/jeu". $item .".jpg'></a></li>";
 }
 echo "</ul>";
 

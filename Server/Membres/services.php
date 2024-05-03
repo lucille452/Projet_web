@@ -30,6 +30,22 @@ function getMembres($bdd)
         echo "<td>". $row['date_naissance'] ."</td>";
         echo "<td>". $row['solde'] ."</td>";
         echo "<td><button id='showModifier". $row['id'] ."'><img src='../../../Front/Image/bouton-modifier.png'></button>";
-        echo "<button id='showSupprimer". $row['id'] ."'><img src='../../../Front/Image/supprimer.png'></button></td></tr>";
+        echo "<button id='showSupprimer". $row['id'] ."'><img src='../../../Front/Image/supprimer.png'></button></td>";
+        echo "<div id='modifier". $row['id'] ."'></div></tr>";
+        dialog($row['nom'], $row['id']);
     }
+}
+
+function dialog($nom, $id)
+{
+    echo "<dialog id='supDialog". $id . "' style='color: #CA7AD0FF;'>
+              <form action='' method='post'>
+                  <button onclick='closeDialog()'>
+                      <img src='../../../Front/Image/fermer.png'>
+                  </button>
+                  <h4>Voulez-vous supprimer le membre " . $nom ." ?</h4>
+                  <input type='hidden' name='id' value='". $id ."'>
+                <input type='submit' name='supprimer' value='Supprimer'>
+              </form>
+          </dialog>";
 }
