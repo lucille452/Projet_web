@@ -22,7 +22,7 @@ include "../../../Server/Pages/accueil_admin.php";
         <ul>
             <li><a href="accueil_admin.php"><img src="../../Image/logo.png"></a><p>GameNexus</p></li>
             <div>
-                <li><a href="accueil_admin.php" class="active">Accueil</a></li>
+                <li><a href="accueil_admin.php" class="active">Tableau de bord</a></li>
                 <li><a href="membres.php">Membres</a></li>
                 <li><a href="jeux.php">Jeux</a></li>
                 <li><a href="../Global_page/connexion.php">Déconnexion</a></li>

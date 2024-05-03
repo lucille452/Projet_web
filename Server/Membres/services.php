@@ -31,7 +31,7 @@ function getMembres($bdd)
         echo "<td>". $row['solde'] ."</td>";
         echo "<td><button id='showModifier". $row['id'] ."'><img src='../../../Front/Image/bouton-modifier.png'></button>";
         echo "<button id='showSupprimer". $row['id'] ."'><img src='../../../Front/Image/supprimer.png'></button></td>";
-        echo "<div id='modifier". $row['id'] ."'></div></tr>";
+        echo "</tr><form action='' method='post'><tr id='modifier". $row['id'] ."' ></tr></form>";
         dialog($row['nom'], $row['id']);
     }
 }

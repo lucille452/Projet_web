@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
         }
     } else if ($adminData) {
         if ($mail == "admin@gamenexus.com"){
-            header("Location: accueil_admin.php");
+            header("Location: ../Admin_page/accueil_admin.php");
             exit(); // Terminer le script après la redirection
         }
     } else {

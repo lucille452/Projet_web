@@ -22,7 +22,7 @@ include "../../../Server/Pages/membres.php";
         <ul>
             <li><a href="accueil_admin.php"><img src="../../Image/logo.png"></a><p>GameNexus</p></li>
             <div>
-                <li><a href="accueil_admin.php">Accueil</a></li>
+                <li><a href="accueil_admin.php">Tableau de bord</a></li>
                 <li><a href="membres.php" class="active">Membres</a></li>
                 <li><a href="jeux.php">Jeux</a></li>
                 <li><a href="../Global_page/connexion.php">Déconnexion</a></li>
@@ -56,6 +56,7 @@ include "../../../Server/Pages/membres.php";
 <script src="../../Js/membres.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        addUpdateMembre()
         dialog()
         closeDialog()
     });
