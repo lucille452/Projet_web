@@ -18,6 +18,15 @@ function closeDialog() {
     }
 }
 
+function closeUpdate() {
+    for (let id = 1; id < 1000; id++) {
+        let tr = document.getElementById('modifier' + id);
+        if (tr) {
+            tr.remove();
+        }
+    }
+}
+
 function addUpdateMembre() {
     for (let id = 1; id < 1000; id++) {
         let form = document.getElementById('modifier' + id)
@@ -48,11 +57,15 @@ function addUpdateMembre() {
                 let submit = document.createElement('input')
                 submit.type = 'submit'
                 submit.name = 'submit'
-                submit.value = 'Enregistrer les modifications'
+                submit.value = 'Enregistrer'
 
                 let btnFermer = document.createElement('button')
-                btnFermer.id = 'sup' + id
+                btnFermer.addEventListener("click", closeUpdate)
 
+                let img = document.createElement('img')
+                img.src = '../../Image/fermer.png'
+
+                btnFermer.appendChild(img)
 
                 let tdNom = document.createElement('td')
                 let tdPrenom = document.createElement('td')
