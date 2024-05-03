@@ -56,9 +56,10 @@ include "../../../Server/Pages/membres.php";
 <script src="../../Js/membres.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        addUpdateMembre()
-        dialog()
-        closeDialog()
+        dialogSup()
+        closeSup()
+        dialogMod()
+        closeMod()
     });
 </script>
 

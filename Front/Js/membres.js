@@ -1,4 +1,4 @@
-function dialog() {
+function dialogSup() {
     for (let id = 1; id < 1000; id++) {
         const supDialog = document.getElementById("supDialog" + id)
         const showSupprimer = document.getElementById("showSupprimer" + id)
@@ -9,7 +9,7 @@ function dialog() {
     }
 }
 
-function closeDialog() {
+function closeSup() {
     for (let id = 1; id < 1000; id++) {
         let dialog = document.getElementById('supDialog' + id);
         if (dialog) {
@@ -18,81 +18,22 @@ function closeDialog() {
     }
 }
 
-function closeUpdate() {
+function dialogMod() {
     for (let id = 1; id < 1000; id++) {
-        let tr = document.getElementById('modifier' + id);
-        if (tr) {
-            tr.remove();
+        const modDialog = document.getElementById("modDialog" + id)
+        const swhoModifier = document.getElementById("showModifier" + id)
+
+        if (modDialog && swhoModifier) {
+            swhoModifier.addEventListener("click", () => modDialog.showModal())
         }
     }
 }
 
-function addUpdateMembre() {
+function closeMod() {
     for (let id = 1; id < 1000; id++) {
-        let form = document.getElementById('modifier' + id)
-        const addBtn = document.getElementById('showModifier' + id)
-
-        if (form && addBtn) {
-            addBtn.addEventListener('click', function () {
-                let nom = document.createElement('input')
-                nom.type = 'text'
-                nom.name = 'nom'
-                nom.required = true
-
-                let prenom = document.createElement('input')
-                prenom.type = 'text'
-                prenom.name = 'prenom'
-                prenom.required = true
-
-                let mail = document.createElement('input')
-                mail.type = 'email'
-                mail.name = 'email'
-                mail.required = true
-
-                let birth = document.createElement('input')
-                birth.type = 'date'
-                birth.name = 'birth'
-                birth.required = true
-
-                let submit = document.createElement('input')
-                submit.type = 'submit'
-                submit.name = 'submit'
-                submit.value = 'Enregistrer'
-
-                let btnFermer = document.createElement('button')
-                btnFermer.addEventListener("click", closeUpdate)
-
-                let img = document.createElement('img')
-                img.src = '../../Image/fermer.png'
-
-                btnFermer.appendChild(img)
-
-                let tdNom = document.createElement('td')
-                let tdPrenom = document.createElement('td')
-                let tdMail = document.createElement('td')
-                let tdBirth = document.createElement('td')
-                let tdSubmit = document.createElement('td')
-                let tdBtnFermer = document.createElement('td')
-
-                tdNom.appendChild(nom)
-                form.appendChild(tdNom)
-
-                tdPrenom.appendChild(prenom)
-                form.appendChild(tdPrenom)
-
-                tdMail.appendChild(mail)
-                form.appendChild(tdMail)
-
-                tdBirth.appendChild(birth)
-                form.appendChild(tdBirth)
-
-                tdSubmit.appendChild(submit)
-                form.appendChild(tdSubmit)
-
-                tdBtnFermer.appendChild(btnFermer)
-                form.appendChild(tdBtnFermer)
-
-            })
+        let dialog = document.getElementById('modDialog' + id);
+        if (dialog) {
+            dialog.close();
         }
     }
 }

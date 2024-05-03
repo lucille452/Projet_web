@@ -7,6 +7,13 @@ function addMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp) {
     header("Location: accueil_membre.php");
 }
 
+function updateMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $id) {
+    $newMembre = $bdd->prepare("UPDATE membres SET nom=?, prenom=?, adresse_mail=?, date_naissance=? WHERE id=? ");
+    $newMembre->execute([$nom, $prenom, $mail, $dateNaissance, $id]);
+
+    header("Location: membres.php");
+}
+
 function deleteMembre($bdd, $id) {
     $delete = $bdd->prepare("DELETE FROM membres WHERE id=?");
     $delete->execute([$id]);
@@ -30,22 +37,46 @@ function getMembres($bdd)
         echo "<td>". $row['date_naissance'] ."</td>";
         echo "<td>". $row['solde'] ."</td>";
         echo "<td><button id='showModifier". $row['id'] ."'><img src='../../../Front/Image/bouton-modifier.png'></button>";
-        echo "<button id='showSupprimer". $row['id'] ."'><img src='../../../Front/Image/supprimer.png'></button></td>";
-        echo "</tr><form action='' method='post'><tr id='modifier". $row['id'] ."' ></tr></form>";
-        dialog($row['nom'], $row['id']);
+        echo "<button id='showSupprimer". $row['id'] ."'><img src='../../../Front/Image/supprimer.png'></button></td></tr>";
+        echo "<tr><form action='' method='post' id='modifier". $row['id'] ."'></form></tr>";
+        dialogSup($row['nom'], $row['id']);
+        dialogMod($row['nom'], $row['prenom'], $row['adresse_mail'], $row['date_naissance'],$row['id']);
+
     }
 }
 
-function dialog($nom, $id)
+function dialogSup($nom, $id)
 {
     echo "<dialog id='supDialog". $id . "' style='color: #CA7AD0FF;'>
               <form action='' method='post'>
-                  <button onclick='closeDialog()'>
+                  <button onclick='closeSup()'>
                       <img src='../../../Front/Image/fermer.png'>
                   </button>
                   <h4>Voulez-vous supprimer le membre " . $nom ." ?</h4>
                   <input type='hidden' name='id' value='". $id ."'>
                 <input type='submit' name='supprimer' value='Supprimer'>
+              </form>
+          </dialog>";
+}
+
+function dialogMod($nom, $prenom, $mail, $birth, $id)
+{
+    echo  "<dialog id='modDialog". $id ."' style='color: #e2b946;'>
+              <form action='' method='post'>
+                  <button onclick='closeMod()'>
+                      <img src='../../../Front/Image/fermer.png'>
+                  </button>
+                  <h4>Modifier le membre ". $nom ."</h4>
+                  <input type='hidden' name='id' value='". $id ."'>
+                  <label><b>Nom :</b></label></br>
+                  <input type='text' name='nom' value='". $nom ."'></br>
+                  <label><b>Prénom :</b></label></br>
+                  <input type='text' name='prenom' value='". $prenom ."'></br>
+                  <label><b>Adresse mail :</b></label></br>
+                  <input type='email' name='email' value='". $mail ."'></br>
+                  <label><b>Date de naissance :</b></label></br>
+                  <input type='date' name='birth' value='". $birth ."'></br>
+                <input type='submit' name='modifier' value='Enregistrer'>
               </form>
           </dialog>";
 }
