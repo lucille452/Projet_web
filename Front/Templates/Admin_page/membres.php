@@ -10,7 +10,10 @@ include "../../../Server/Pages/membres.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Membres - GameNexus</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../../Css/membres.css" />
+    <link rel="stylesheet" href="../../Css/Admin/membres.css" />
+    <link rel="stylesheet" href="../../Css/Structure/dialog.css" />
+    <link rel="stylesheet" href="../../Css/Structure/base.css" />
+    <link rel="stylesheet" href="../../Css/Structure/header.css" />
     <style>
 
     </style>

@@ -1,0 +1,140 @@
+/* Main */
+main {
+    margin-top: 17vh;
+    margin-bottom: 17vh;
+    color: var(--clr-tertiary);
+    margin-left: 5%;
+    width: 90%;
+}
+
+.jeu {
+    margin-top: 20px;
+}
+
+.jeu .precision {
+    display: block;
+    color: var(--clr-primary);
+}
+
+.jeu .crud button:hover{
+    cursor: pointer;
+}
+
+.jeu .crud img {
+    width: 20px;
+    height: 20px;
+}
+
+#add_jeu_btn {
+    background-color: var(--clr-primary);
+    border: none;
+    color: var(--clr-secondary);
+    padding: 10px;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+#add_jeu_btn:hover {
+    cursor: pointer;
+}
+
+#add_jeu {
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+#add_jeu label {
+    display: block;
+}
+
+#add_jeu input {
+    border: none;
+    border-bottom: 2px solid var(--clr-primary);
+    background: none;
+    outline: none;
+    padding: 3px;
+    margin-bottom: 5px;
+}
+
+#add_jeu input[type=submit] {
+    border: none;
+    background-color: var(--clr-secondary);
+    padding: 5px;
+    border-radius: 3px;
+    color: var(--clr-primary);
+    margin-left: 15px;
+}
+
+#add_jeu input[type=submit]:hover {
+    cursor: pointer;
+}
+
+section button{
+    background: none;
+    border: none;
+}
+
+/* End Main */
+
+/* Footer */
+footer {
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+footer h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+footer p {
+    font-size: 10px;
+}
+
+footer ul {
+    list-style: none;
+    line-height: 10px;
+    font-size: 10px;
+}
+
+footer ul li {
+    cursor: pointer;
+}
+
+.footer-about {
+    width: 35%;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 7px;
+    margin-top: 15px;
+    border-top: 1px solid #b2b2b2;
+}
+/* End Footer */
+
+/* Scrollbar pour Chrome, Edge, et Safari */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d9d9d9;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--clr-tertiary);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+}
+/* End Scrollbar pour Chrome, Edge, et Safari */

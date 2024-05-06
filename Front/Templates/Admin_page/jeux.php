@@ -10,7 +10,10 @@ include '../../../Server/Pages/jeux.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jeux - GameNexus</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../../Css/jeux.css" />
+    <link rel="stylesheet" href="../../Css/Admin/jeux.css" />
+    <link rel="stylesheet" href="../../Css/Structure/base.css" />
+    <link rel="stylesheet" href="../../Css/Structure/dialog.css" />
+    <link rel="stylesheet" href="../../Css/Structure/header.css" />
 </head>
 <body>
 

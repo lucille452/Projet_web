@@ -10,7 +10,9 @@ include "../../../Server/Pages/accueil_admin.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accueil - GameNexus</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../../Css/accueil_admin.css" />
+    <link rel="stylesheet" href="../../Css/Admin/accueil_admin.css" />
+    <link rel="stylesheet" href="../../Css/Structure/base.css" />
+    <link rel="stylesheet" href="../../Css/Structure/header.css" />
     <style>
 
     </style>
