@@ -14,3 +14,10 @@ function updateMembreController($bdd)
         updateMembreMiddleware($bdd);
     }
 }
+
+function deleteMembreController($bdd)
+{
+    if (isset($_POST['supprimer'])) {
+        deleteMembreMiddleware($bdd);
+    }
+}

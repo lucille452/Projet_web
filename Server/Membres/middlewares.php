@@ -40,3 +40,10 @@ function updateMembreMiddleware($bdd)
     }
 
 }
+
+function deleteMembreMiddleware($bdd)
+{
+    $id = $_POST['id'];
+
+    deleteMembre($bdd, $id);
+}

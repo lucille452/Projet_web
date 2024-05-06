@@ -14,9 +14,6 @@ include "../../../Server/Pages/membres.php";
     <link rel="stylesheet" href="../../Css/Structure/dialog.css" />
     <link rel="stylesheet" href="../../Css/Structure/base.css" />
     <link rel="stylesheet" href="../../Css/Structure/header.css" />
-    <style>
-
-    </style>
 </head>
 <body>
 
