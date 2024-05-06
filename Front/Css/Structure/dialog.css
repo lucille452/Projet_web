@@ -39,7 +39,7 @@ dialog input[type=submit]:hover {
     cursor: pointer;
 }
 
-dialog input[type=text], dialog input[type=email], dialog input[type=date] {
+dialog input[type=text], dialog input[type=email], dialog input[type=date], textarea, dialog input[type=number] {
     border: none;
     border-bottom: 2px solid var(--clr-primary);
     background: none;

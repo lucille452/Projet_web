@@ -14,6 +14,7 @@ include '../../../Server/Pages/jeux.php';
     <link rel="stylesheet" href="../../Css/Structure/base.css" />
     <link rel="stylesheet" href="../../Css/Structure/dialog.css" />
     <link rel="stylesheet" href="../../Css/Structure/header.css" />
+    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 </head>
 <body>
 

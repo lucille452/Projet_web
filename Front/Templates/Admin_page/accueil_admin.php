@@ -13,9 +13,7 @@ include "../../../Server/Pages/accueil_admin.php";
     <link rel="stylesheet" href="../../Css/Admin/accueil_admin.css" />
     <link rel="stylesheet" href="../../Css/Structure/base.css" />
     <link rel="stylesheet" href="../../Css/Structure/header.css" />
-    <style>
-
-    </style>
+    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 </head>
 <body>
 

@@ -7,9 +7,8 @@
     <title>Profil - GameNexus</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../../Css/profil.css" />
-    <style>
+    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 
-    </style>
 </head>
 <body>
 
