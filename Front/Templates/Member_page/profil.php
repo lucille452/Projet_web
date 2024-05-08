@@ -1,3 +1,9 @@
+<?php
+include '../../../Server/Pages/update_solde.php';
+session_start();
+$bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +13,7 @@
     <title>Profil - GameNexus</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../../Css/profil.css" />
-    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
-
+    <script src="../../Js/profil.js"></script>
 </head>
 <body>
 
@@ -27,7 +32,73 @@
 </header>
 
 <main>
+    <section class="section">
+        <div class="container">
+            <h1>Profil</h1>
+            <div class="profile-info">
+                <!-- Informations utilisateur -->
+                <?php if(isset($_SESSION['mail'])): ?>
+                    <?php
+                    // Récupération des données utilisateur depuis la session
+                    $mail = $_SESSION['mail'];
+                    $mdp = $_SESSION['mdp'];
 
+                    $user = $bdd->prepare("SELECT * FROM membres WHERE adresse_mail=? AND mot_de_passe=?");
+                    $user->execute([$mail, $mdp]);
+
+                    // Utilisation de fetch pour obtenir les données de l'utilisateur
+                    $userData = $user->fetch();
+                    ?>
+                    <p class="info-item">Nom: <span id="nom"><?php echo isset($userData['nom']) ? $userData['nom'] : 'Nom de l\'utilisateur'; ?></span></p>
+                    <p class="info-item">Prénom: <span id="prenom"><?php echo isset($userData['prenom']) ? $userData['prenom'] : 'Prénom de l\'utilisateur'; ?></span></p>
+                    <p class="info-item">Adresse email: <span id="email"><?php echo isset($userData['adresse_mail']) ? $userData['adresse_mail'] : 'Email de l\'utilisateur'; ?></span></p>
+                    <p class="info-item">Date de naissance: <span id="dob"><?php echo isset($userData['date_naissance']) ? $userData['date_naissance'] : 'Date de naissance de l\'utilisateur'; ?></span></p>
+                    <p class="info-item">Solde: <span id="solde"><?php echo isset($userData['solde']) ? $userData['solde'] : '0'; ?></span> €</p> <!-- Ajout du solde -->
+                <?php endif; ?>
+            </div>
+            <div class="button-container">
+                <!-- Boutons pour ajouter au solde -->
+                <form action="" method="post">
+                    <button name="addAmount" value="10">+10 €</button>
+                    <button name="addAmount" value="20">+20 €</button>
+                    <button name="addAmount" value="50">+50 €</button>
+                    <button name="addAmount" value="100">+100 €</button>
+                </form>
+            </div>
+            <button id="btnModifier"><img src="../../Image/bouton-modifier.png" > Modifier</button>
+        </div>
+    </section>
+
+    <!-- Inputs pour la modification des informations -->
+    <section id="sectionModifier" class="section" style="display: none;">
+        <div class="container">
+            <h2>Modifier vos informations</h2>
+            <form id="formModifier">
+                <label for="newNom">Nouveau nom:</label>
+                <input type="text" id="newNom" name="newNom"><br><br>
+
+                <label for="newPrenom">Nouveau prénom:</label>
+                <input type="text" id="newPrenom" name="newPrenom"><br><br>
+
+                <label for="newEmail">Nouvelle adresse email:</label>
+                <input type="email" id="newEmail" name="newEmail"><br><br>
+
+                <label for="newDOB">Nouvelle date de naissance:</label>
+                <input type="date" id="newDOB" name="newDOB"><br><br>
+
+                <label for="newPassword">Nouveau mot de passe:</label>
+                <input type="password" id="newPassword" name="newPassword"><br><br>
+
+                <label for="confirmPassword">Confirmez le nouveau mot de passe:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+
+                <div class="button-container">
+                    <input type="submit" value="Enregistrer">
+                    <button id="btnRetour">Retour</button>
+                </div>
+            </form>
+        </div>
+    </section>
 </main>
 
 <!-- Footer -->
@@ -61,7 +132,7 @@
                 <li>Account</li>
                 <li>Support Center</li>
                 <li>Feedback</li>
-                <li>Suggession</li>
+                <li>Suggestion</li>
             </ul>
         </div>
     </div>
@@ -71,6 +142,5 @@
     </div>
 </footer>
 <!-- End Footer -->
-
 </body>
 </html>
