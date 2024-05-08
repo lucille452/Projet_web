@@ -1,3 +1,4 @@
+
 <?php
 
 function addMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp) {

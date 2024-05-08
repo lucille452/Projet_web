@@ -1,5 +1,5 @@
 <?php
-include "../../Server/Pages/inscription.php";
+include "../../../Server/Pages/inscription.php";
 ?>
 
 <!DOCTYPE html>
