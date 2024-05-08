@@ -12,3 +12,18 @@ function getNbrMembres($bdd)
 
     echo "<div><h2>$nbrMembres</h2></div>";
 }
+
+function getRevenuTotaux($bdd)
+{
+
+}
+
+function getVentesTotales($bdd)
+{
+
+}
+
+function getRevenus7jours($bdd)
+{
+
+}

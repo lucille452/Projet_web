@@ -42,16 +42,25 @@ include "../../../Server/Pages/accueil_admin.php";
                 <h3>membres</h3>
             </div>
             <div class="info first">
+                <?php
+                getRevenuTotaux($bdd);
+                ?>
                 <h3>au total</h3>
             </div>
             <div class="info first">
                 <img src="../../Image/vente.png">
+                <?php
+                getVentesTotales($bdd);
+                ?>
                 <h3>ventes</h3>
             </div>
         </div>
         <div class="line">
             <div class="info second">
                 <img src="../../Image/sac-dargent.png">
+                <?php
+                getRevenus7jours($bdd);
+                ?>
                 <h3>ces 7 derniers jours</h3>
             </div>
             <div class="info second">
