@@ -1,0 +1,116 @@
+/* Main */
+main {
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+
+h1 {
+    font-size: 27px;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+/* Style du tableau */
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/* Style des cellules */
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--clr-tertiary);
+}
+
+/* Style de l'en-tête */
+th {
+    background-color: var(--clr-primary);
+}
+
+/* Style des lignes impaires */
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Style des lignes au survol */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+img {
+    width: 20px;
+    height: 20px;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+/* End Main */
+
+/* Footer */
+footer {
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+footer h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+footer p {
+    font-size: 10px;
+}
+
+footer ul {
+    list-style: none;
+    line-height: 10px;
+    font-size: 10px;
+}
+
+footer ul li {
+    cursor: pointer;
+}
+
+.footer-about {
+    width: 35%;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 7px;
+    margin-top: 15px;
+    border-top: 1px solid #b2b2b2;
+}
+/* End Footer */
+
+/* Scrollbar pour Chrome, Edge, et Safari */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d9d9d9;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--clr-tertiary);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+}
+/* End Scrollbar pour Chrome, Edge, et Safari */

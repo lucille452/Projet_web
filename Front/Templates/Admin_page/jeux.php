@@ -1,5 +1,5 @@
 <?php
-include '../../Server/Pages/jeux.php';
+include '../../../Server/Pages/jeux.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,11 @@ include '../../Server/Pages/jeux.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jeux - GameNexus</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../../Css/jeux.css" />
+    <link rel="stylesheet" href="../../Css/Admin/jeux.css" />
+    <link rel="stylesheet" href="../../Css/Structure/base.css" />
+    <link rel="stylesheet" href="../../Css/Structure/dialog.css" />
+    <link rel="stylesheet" href="../../Css/Structure/header.css" />
+    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 </head>
 <body>
 
@@ -19,7 +23,7 @@ include '../../Server/Pages/jeux.php';
         <ul>
             <li><a href="accueil_admin.php"><img src="../../Image/logo.png"></a><p>GameNexus</p></li>
             <div>
-                <li><a href="accueil_admin.php">Accueil</a></li>
+                <li><a href="accueil_admin.php">Tableau de bord</a></li>
                 <li><a href="membres.php">Membres</a></li>
                 <li><a href="jeux.php" class="active">Jeux</a></li>
                 <li><a href="../Global_page/connexion.php">Déconnexion</a></li>
@@ -37,8 +41,8 @@ include '../../Server/Pages/jeux.php';
     getJeux($bdd);
     ?>
     </section>
-    <button type="button" id="add_jeu_btn">Rajouter un jeu</button>
-    <form action="" method="post" id="add_jeu"></form>
+    <button type="button" id="add_jeu_btn">Ajouter un jeu</button>
+    <form action="" method="post" id="add_jeu" enctype="multipart/form-data"></form>
 </main>
 
 <script src="../../Js/jeu.js"></script>

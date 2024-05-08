@@ -10,6 +10,7 @@ function addJeuMiddleware($bdd)
 
     if (!empty($nom) && !empty($description) && !empty($quantite) && !empty($prix)) {
         addJeu($bdd, $nom, $description, $quantite, $prix);
+        addImage($bdd);
     } else {
         echo 'Veuillez remplir tous les champs';
     }

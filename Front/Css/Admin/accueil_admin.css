@@ -1,0 +1,114 @@
+
+
+/* Main */
+main{
+    margin-top: 10vh;
+}
+
+.line{
+    color: var(--clr-primary);
+    text-align: center;
+    width: 90%;
+    display: flex;
+    margin-left: 5%;
+}
+
+.info{
+    padding: 30px;
+    border: 2px solid var(--clr-tertiary);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    box-shadow: 5px 5px 10px #b7b7b7;
+}
+
+.first {
+    width: 33.33333333333%;
+}
+
+.first div {
+    display: flex;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 150px;
+    border: 10px solid var(--clr-tertiary);
+    align-items: center;
+    justify-content: center;
+}
+
+.second {
+    width: 50%;
+}
+
+img{
+    width: 20%;
+    height: auto;
+}
+
+/* End Main */
+
+/* Footer */
+footer {
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+footer h2 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+footer p {
+    font-size: 10px;
+}
+
+footer ul {
+    list-style: none;
+    line-height: 10px;
+    font-size: 10px;
+}
+
+footer ul li {
+    cursor: pointer;
+}
+
+.footer-about {
+    width: 35%;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 7px;
+    margin-top: 15px;
+    border-top: 1px solid #b2b2b2;
+}
+/* End Footer */
+
+/* Scrollbar pour Chrome, Edge, et Safari */
+::-webkit-scrollbar {
+    width: 12px; /* Largeur de la scrollbar verticale */
+    height: 12px; /* Hauteur de la scrollbar horizontale */
+}
+
+::-webkit-scrollbar-track {
+    background: #d9d9d9; /* Couleur de fond du track (la zone de la scrollbar) */
+    border-radius: 6px; /* Coins arrondis du track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--clr-tertiary); /* Couleur de la poignée (thumb) */
+    border-radius: 6px; /* Coins arrondis de la poignée */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    cursor: pointer;
+}
+/* End Scrollbar pour Chrome, Edge, et Safari */

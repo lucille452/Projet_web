@@ -7,9 +7,7 @@
     <title>Panier - GameNexus</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../../Css/panier.css" />
-    <style>
-
-    </style>
+    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 </head>
 <body>
 

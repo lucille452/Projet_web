@@ -1,5 +1,5 @@
 <?php
-include "../../../Server/Pages/inscription.php";
+include "../../Server/Pages/inscription.php";
 ?>
 
 <!DOCTYPE html>
@@ -9,6 +9,8 @@ include "../../../Server/Pages/inscription.php";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inscription - GameNexus</title>
   <link rel="stylesheet" href="../../Css/conn_insc_mdpo.css">
+    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
+
 </head>
 <body>
 <div class="container">

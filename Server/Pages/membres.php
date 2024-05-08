@@ -1,14 +1,8 @@
 <?php
 
-function getMembres($bdd)
-{
-    $membres =  $bdd->query("SELECT * FROM membres");
+include '/xampp/htdocs/Projet_web/Server/Membres/controllers.php';
 
-    while ($row = $membres->fetch(PDO::FETCH_ASSOC)) {
-        echo "<tr><td>". $row['nom'] ."</td>";
-        echo "<td>". $row['prenom'] ."</td>";
-        echo "<td>". $row['adresse_mail'] ."</td>";
-        echo "<td>". $row['date_naissance'] ."</td>";
-        echo "<td>". $row['solde'] ."</td></tr>";
-    }
-}
+$bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8;','root',"");
+
+updateMembreController($bdd);
+deleteMembreController($bdd);

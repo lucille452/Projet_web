@@ -9,6 +9,7 @@ include '../../../Server/Pages/connexion.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - GameNexus</title>
     <link rel="stylesheet" href="../../Css/conn_insc_mdpo.css">
+    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 </head>
 <body>
 <div class="container">

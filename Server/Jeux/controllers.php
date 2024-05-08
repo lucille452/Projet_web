@@ -3,7 +3,7 @@ include 'middlewares.php';
 
 function addJeuController($bdd)
 {
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['submit']) && isset($_FILES['image'])) {
         addJeuMiddleware($bdd);
     }
 }

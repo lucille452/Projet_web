@@ -24,12 +24,12 @@ if (isset($_POST["submit"])) {
             session_start();
             $_SESSION['mail'] = $mail;
             $_SESSION['mdp'] = $mdp;
-            header("Location: accueil_membre.php");
+            header("Location: ../Member_page/accueil_membre.php");
             exit(); // Terminer le script après la redirection
         }
     } else if ($adminData) {
         if ($mail == "admin@gamenexus.com"){
-            header("Location: accueil_admin.php");
+            header("Location: ../Admin_page/accueil_admin.php");
             exit(); // Terminer le script après la redirection
         }
     } else {

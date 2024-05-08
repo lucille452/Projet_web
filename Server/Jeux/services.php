@@ -7,6 +7,33 @@ function addJeu($bdd, $nom, $description, $quantite, $prix)
     $newJeux->execute([$nom, $description, $quantite, $prix, $codeActivation]);
 }
 
+function addImage($bdd) {
+    $requete = $bdd->query("SELECT id FROM jeux ORDER BY id DESC LIMIT 1");
+
+    if ($requete) {
+        $resultat = $requete->fetch();
+        if ($resultat && isset($resultat[0])) {
+            $id = $resultat[0]; // Extraire l'ID
+
+            $chemin = "../../../Front/Image/Jeu/";
+            $image = "jeu" . $id . ".jpg";
+            $file = $chemin . $image;
+
+            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                $contenu = file_get_contents($_FILES['image']['tmp_name']);
+
+                file_put_contents($file, $contenu);
+            } else {
+                echo "Erreur lors du téléchargement de l'image.";
+            }
+        } else {
+            echo "Aucun ID trouvé.";
+        }
+    } else {
+        echo "Erreur lors de la requête SQL.";
+    }
+}
+
 function updateJeu($bdd, $nom, $description, $quantite, $prix, $code, $id)
 {
     $updateJeu = $bdd->prepare("UPDATE jeux SET nom=?, description=?, quantité=?, prix=?, code_activation=? WHERE id=?");
@@ -30,8 +57,8 @@ function getJeux($bdd)
 
     while ($row = $jeux->fetch(PDO::FETCH_ASSOC)) {
         echo "<div class='jeu'><h2>". $row['nom'] ."</h2>";
-        echo "<div class='crud'><button id='showModifier". $row['id'] ."'><img src='../../Front/Image/bouton-modifier.png'></button>";
-        echo "<button id='showSupprimer". $row['id'] ."'><img src='../../Front/Image/supprimer.png'></button></div>";
+        echo "<div class='crud'><button id='showModifier". $row['id'] ."'><img src='../../../Front/Image/bouton-modifier.png'></button>";
+        echo "<button id='showSupprimer". $row['id'] ."'><img src='../../../Front/Image/supprimer.png'></button></div>";
         echo "<div class='precision'><h3>Quantité : ". $row['quantité'] ."</h3>";
         echo "<h3>Prix : ". $row['prix'] ."€</h3>";
         echo "<h3>Code d'Activation : ". $row['code_activation'] ."</h3></div>";
@@ -46,7 +73,7 @@ function dialogSupprimer($nom, $id)
     echo "<dialog id='supDialog". $id . "' style='color: #CA7AD0FF;'>
               <form action='' method='post'>
                   <button onclick='closeSupDialog()'>
-                      <img src='../../Front/Image/fermer.png'>
+                      <img src='../../../Front/Image/fermer.png'>
                   </button>
                   <h4>Voulez-vous supprimer le jeu " . $nom ." ?</h4>
                   <input type='hidden' name='id' value='". $id ."'>
@@ -60,7 +87,7 @@ function dialogModifier($nom, $quantite, $prix, $code, $description, $id)
     echo  "<dialog id='modDialog". $id ."' style='color: #e2b946;'>
               <form action='' method='post'>
                   <button onclick='closeModDialog()'>
-                      <img src='../../Front/Image/fermer.png'>
+                      <img src='../../../Front/Image/fermer.png'>
                   </button>
                   <h4>Modifier le jeu ". $nom ."</h4>
                   <input type='hidden' name='id' value='". $id ."'>
