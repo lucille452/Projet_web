@@ -10,7 +10,7 @@ function addMembreController($bdd)
 
 function updateMembreController($bdd)
 {
-    if (isset($_POST['modifier'])) {
+    if (isset($_POST['enregistrer'])) {
         updateMembreMiddleware($bdd);
     }
 }

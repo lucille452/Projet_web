@@ -1,8 +1,11 @@
 <?php
-include '../../../Server/Pages/update_solde.php';
+include "../../../Server/Pages/membres.php";
+include '../../../Server/update_solde.php';
+
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,25 +78,19 @@ $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
             <h2>Modifier vos informations</h2>
             <form id="formModifier">
                 <label for="newNom">Nouveau nom:</label>
-                <input type="text" id="newNom" name="newNom"><br><br>
+                <input type="text" id="newNom" name="newNom" value="<?php echo isset($userData['nom']) ? $userData['nom'] : ''; ?>"><br><br>
 
                 <label for="newPrenom">Nouveau prénom:</label>
-                <input type="text" id="newPrenom" name="newPrenom"><br><br>
+                <input type="text" id="newPrenom" name="newPrenom" value="<?php echo isset($userData['prenom']) ? $userData['prenom'] : ''; ?>"><br><br>
 
                 <label for="newEmail">Nouvelle adresse email:</label>
-                <input type="email" id="newEmail" name="newEmail"><br><br>
+                <input type="email" id="newEmail" name="newEmail" value="<?php echo isset($userData['adresse_mail']) ? $userData['adresse_mail'] : ''; ?>"><br><br>
 
                 <label for="newDOB">Nouvelle date de naissance:</label>
-                <input type="date" id="newDOB" name="newDOB"><br><br>
-
-                <label for="newPassword">Nouveau mot de passe:</label>
-                <input type="password" id="newPassword" name="newPassword"><br><br>
-
-                <label for="confirmPassword">Confirmez le nouveau mot de passe:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword"><br><br>
+                <input type="date" id="newDOB" name="newDOB" value="<?php echo isset($userData['date_naissance']) ? $userData['date_naissance'] : ''; ?>"><br><br>
 
                 <div class="button-container">
-                    <input type="submit" value="Enregistrer">
+                    <input type="submit" name="enregistrer" value="Enregistrer">
                     <button id="btnRetour">Retour</button>
                 </div>
             </form>
