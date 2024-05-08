@@ -1,8 +1,6 @@
 <?php
-include "../../../Server/Pages/membres.php";
-include '../../../Server/update_solde.php';
+include "../../../Server/Pages/profil.php";
 
-session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
 ?>
 
@@ -76,18 +74,20 @@ $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
     <section id="sectionModifier" class="section" style="display: none;">
         <div class="container">
             <h2>Modifier vos informations</h2>
-            <form id="formModifier">
+            <form id="formModifier" action="" method="post">
                 <label for="newNom">Nouveau nom:</label>
-                <input type="text" id="newNom" name="newNom" value="<?php echo isset($userData['nom']) ? $userData['nom'] : ''; ?>"><br><br>
+                <input type="text" id="newNom" name="nom" value="<?php echo isset($userData['nom']) ? $userData['nom'] : ''; ?>"><br><br>
 
                 <label for="newPrenom">Nouveau prénom:</label>
-                <input type="text" id="newPrenom" name="newPrenom" value="<?php echo isset($userData['prenom']) ? $userData['prenom'] : ''; ?>"><br><br>
+                <input type="text" id="newPrenom" name="prenom" value="<?php echo isset($userData['prenom']) ? $userData['prenom'] : ''; ?>"><br><br>
 
                 <label for="newEmail">Nouvelle adresse email:</label>
-                <input type="email" id="newEmail" name="newEmail" value="<?php echo isset($userData['adresse_mail']) ? $userData['adresse_mail'] : ''; ?>"><br><br>
+                <input type="email" id="newEmail" name="email" value="<?php echo isset($userData['adresse_mail']) ? $userData['adresse_mail'] : ''; ?>"><br><br>
 
                 <label for="newDOB">Nouvelle date de naissance:</label>
-                <input type="date" id="newDOB" name="newDOB" value="<?php echo isset($userData['date_naissance']) ? $userData['date_naissance'] : ''; ?>"><br><br>
+                <input type="date" id="newDOB" name="birth" value="<?php echo isset($userData['date_naissance']) ? $userData['date_naissance'] : ''; ?>"><br><br>
+
+                <input type="hidden" name="id" value="<?php echo isset($userData['id']) ? $userData['id'] : ''; ?>">
 
                 <div class="button-container">
                     <input type="submit" name="enregistrer" value="Enregistrer">

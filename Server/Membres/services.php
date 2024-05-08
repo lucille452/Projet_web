@@ -8,11 +8,18 @@ function addMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp) {
     header("Location: accueil_membre.php");
 }
 
-function updateMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $id) {
+function updateMembreAdmin($bdd, $nom, $prenom, $mail, $dateNaissance, $id) {
     $newMembre = $bdd->prepare("UPDATE membres SET nom=?, prenom=?, adresse_mail=?, date_naissance=? WHERE id=? ");
     $newMembre->execute([$nom, $prenom, $mail, $dateNaissance, $id]);
 
     header("Location: membres.php");
+}
+
+function updateMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $id) {
+    $newMembre = $bdd->prepare("UPDATE membres SET nom=?, prenom=?, adresse_mail=?, date_naissance=? WHERE id=? ");
+    $newMembre->execute([$nom, $prenom, $mail, $dateNaissance, $id]);
+
+    header("Location: profil.php");
 }
 
 function deleteMembre($bdd, $id) {

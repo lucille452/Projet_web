@@ -8,10 +8,17 @@ function addMembreController($bdd)
     }
 }
 
+function updateMembreControllerAdmin($bdd)
+{
+    if (isset($_POST['modifier'])) {
+    updateMembreMiddlewareAdmin($bdd);
+    }
+}
+
 function updateMembreController($bdd)
 {
     if (isset($_POST['enregistrer'])) {
-        updateMembreMiddleware($bdd);
+    updateMembreMiddleware($bdd);
     }
 }
 
