@@ -34,7 +34,7 @@ include "../../../Server/Pages/membres.php";
 
 <main>
     <h1>Tous les Membres</h1>
-    <table>
+    <table id="tableau">
         <thead>
         <tr>
             <th scope='col'>Nom</th>
@@ -61,6 +61,20 @@ include "../../../Server/Pages/membres.php";
         closeSup()
         dialogMod()
         closeMod()
+        let tableau = document.getElementById("tableau");
+
+        tableau.addEventListener("click", function(event) {
+            let row = event.target.closest("tr");
+            if (row) {
+                let id = row.dataset.id;
+
+                // Crée l'URL avec les paramètres de requête
+                let url = `detailsMembre.php?id=${id}`;
+
+                // Redirige vers la page avec les paramètres
+                window.location.href = url;
+            }
+        });
     });
 </script>
 
