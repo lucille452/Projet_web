@@ -172,7 +172,7 @@ footer ul li {
 /* End Footer */
 
 /* Nouveau style ajouté pour le bouton modifier */
-#btnModifier {
+#btnModifier, #btnSupprimer {
     display: block;
     margin: 20px auto;
     max-width: 200px; /* Limiter la largeur maximale */
@@ -187,18 +187,18 @@ footer ul li {
 }
 
 
-#btnModifier img {
+#btnModifier img, #btnSupprimer img {
     vertical-align: middle;
     margin-right: 5px;
     width: 12%;
 }
 
-#btnModifier:hover {
+#btnModifier:hover, #btnSupprimer:hover {
     background-color: #1c7e71; /* Une nuance plus foncée du thème principal */
 }
 
 /* Style ajouté pour rendre l'image du bouton modifier réactive */
-#btnModifier img:hover {
+#btnModifier img, #btnSupprimer img:hover {
     opacity: 0.8;
 }
 

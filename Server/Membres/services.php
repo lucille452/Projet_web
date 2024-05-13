@@ -5,7 +5,7 @@ function addMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp) {
     $newMembre = $bdd->prepare("INSERT INTO membres(nom, prenom, adresse_mail, date_naissance, mot_de_passe) VALUES (?,?,?,?,?) ");
     $newMembre->execute([$nom, $prenom, $mail, $dateNaissance, $mdp]);
 
-    header("Location: accueil_membre.php");
+    header("Location: ../Member_page/accueil_membre.php");
 }
 
 function updateMembreAdmin($bdd, $nom, $prenom, $mail, $dateNaissance, $id) {
@@ -31,7 +31,7 @@ function addAdmin($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp) {
     $newAdmin = $bdd->prepare("INSERT INTO admin(nom, prenom, adresse_mail, date_naissance, mot_de_passe) VALUES (?,?,?,?,?) ");
     $newAdmin->execute([$nom, $prenom, $mail, $dateNaissance, $mdp]);
 
-    header("Location: accueil_membre.php");
+    header("Location: ../Admin_page/accueil_admin.php");
 }
 
 function getMembres($bdd)
@@ -61,6 +61,20 @@ function dialogSup($nom, $id)
                       <img src='../../../Front/Image/fermer.png'>
                   </button>
                   <h4>Voulez-vous supprimer le membre " . $nom ." ?</h4>
+                  <input type='hidden' name='id' value='". $id ."'>
+                <input type='submit' name='supprimer' value='Supprimer'>
+              </form>
+          </dialog>";
+}
+
+function dialogSup2($nom, $id)
+{
+    echo "<dialog id='supDialog". $id . "' style='color: #CA7AD0FF;'>
+              <form action='' method='post'>
+                  <button onclick='closeSup()'>
+                      <img src='../../../Front/Image/fermer.png'>
+                  </button>
+                  <h4>Voulez-vous supprimer votre compte " . $nom ." ?</h4>
                   <input type='hidden' name='id' value='". $id ."'>
                 <input type='submit' name='supprimer' value='Supprimer'>
               </form>

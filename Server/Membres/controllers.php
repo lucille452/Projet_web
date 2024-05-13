@@ -22,9 +22,11 @@ function updateMembreController($bdd)
     }
 }
 
-function deleteMembreController($bdd)
+function deleteMembreController($bdd): bool
 {
     if (isset($_POST['supprimer'])) {
         deleteMembreMiddleware($bdd);
+        return true;
     }
+    return false;
 }

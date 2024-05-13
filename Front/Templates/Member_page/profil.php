@@ -14,6 +14,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
     <title>Profil - GameNexus</title>
     <!-- CSS -->
     <link rel="stylesheet" href="../../Css/profil.css" />
+    <link rel="stylesheet" href="../../Css/Structure/dialog.css" />
     <script src="../../Js/profil.js"></script>
 </head>
 <body>
@@ -67,6 +68,17 @@ $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
                 </form>
             </div>
             <button id="btnModifier"><img src="../../Image/bouton-modifier.png" > Modifier</button>
+            <button id="btnSupprimer"><img src="../../Image/supprimer.png" > Supprimer</button>
+            <dialog id='supDialog' style='color: #CA7AD0FF;'>
+                <form action='' method='post'>
+                    <button onclick='closeSup2()'>
+                        <img src='../../Image/fermer.png'>
+                    </button>
+                    <h4>Voulez-vous supprimer votre compte ?</h4>
+                    <input type='hidden' name='id' value='<?php echo isset($userData['id']) ? $userData['id'] : '0';?>'>
+                    <input type='submit' name='supprimer' value='Supprimer'>
+                </form>
+            </dialog>
         </div>
     </section>
 
