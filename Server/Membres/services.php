@@ -1,4 +1,3 @@
-
 <?php
 
 function addMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp) {
@@ -87,4 +86,25 @@ function dialogMod($nom, $prenom, $mail, $birth, $id)
                 <input type='submit' name='modifier' value='Enregistrer'>
               </form>
           </dialog>";
+}
+
+function getNom($id, $bdd)
+{
+    $nom = $bdd->prepare("SELECT nom FROM membres WHERE id=?");
+    $nom->execute([$id]);
+
+    return $nom->fetchColumn();
+}
+
+function showDetailsMembres($bdd)
+{
+    $membres =  $bdd->query("SELECT * FROM membres");
+
+    while ($row = $membres->fetch(PDO::FETCH_ASSOC)) {
+        echo "<h1>". $row['nom'] ."</h1>";
+        echo "<h2>". $row['prenom'] ."</h2>";
+        echo "<div><h3>". $row['adresse_mail'] ."</h3>";
+        echo "<h3>Date de naissance : ". $row['date_naissance'] ."</h3>";
+        echo "<h3>Solde : ". $row['solde'] ."€</h3></div>";
+    }
 }
