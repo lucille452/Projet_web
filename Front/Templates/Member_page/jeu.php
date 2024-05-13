@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nom du jeu - GameNexus</title>
+    <title>Jeu - GameNexus</title>
     <!-- CSS -->
+    <link rel="stylesheet" href="../../Css/Structure/base.css" />
+    <link rel="stylesheet" href="../../Css/Structure/header.css" />
     <link rel="stylesheet" href="../../Css/jeu.css" />
+    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 </head>
 <body>
 
@@ -14,6 +17,8 @@
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
 include '../../../Server/Jeux/services.php';
+include '../../../Server/Articles/controllers.php';
+addArticleController($bdd);
 ?>
 
 <header>
@@ -36,7 +41,10 @@ include '../../../Server/Jeux/services.php';
         <h1 class="game-title"><?php echo getNomJeu($id, $bdd); ?></h1>
         <p class="quantity-price">Quantité: <?php echo getQuantite($id, $bdd); ?> | Prix: <?php echo getPrix($id, $bdd);?>€</p>
         <p class="description"><?php echo getDescription($id, $bdd);?></p>
-        <button id="addToCart" class="add-to-cart-btn">Ajouter au panier</button>
+        <form action="" method="post">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="submit" name="addArticle" id="addToCart" class="add-to-cart-btn" value="Ajouter au panier">
+        </form>
         <div class="game-navigation">
             <button class="prev-btn">&#10094;</button>
             <button class="next-btn">&#10095;</button>
