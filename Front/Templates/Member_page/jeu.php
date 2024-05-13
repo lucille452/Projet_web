@@ -10,6 +10,12 @@
 </head>
 <body>
 
+<?php
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
+include '../../../Server/Jeux/services.php';
+?>
+
 <header>
     <nav>
         <ul>
@@ -26,10 +32,10 @@
 
 <main>
     <div class="game-details">
-        <img src="../../Image/Jeu/jeu1.jpg" alt="Nom du jeu">
-        <h1 class="game-title">Nom du jeu</h1>
-        <p class="quantity-price">Quantité: 10 | Prix: 51€</p>
-        <p class="description">Description du jeu : "The Legend of Zelda: Breath of the Wild" est un jeu vidéo d'action-aventure développé et publié par Nintendo. Sorti en 2017 sur la console Nintendo Switch et la Wii U, il offre aux joueurs une expérience immersive dans un vaste monde ouvert. Dans ce jeu, les joueurs contrôlent Link, le protagoniste, alors qu'il explore le royaume de Hyrule après un long sommeil. Le jeu se distingue par sa liberté d'exploration, ses mécaniques de jeu innovantes, telles que la grimpe, la cuisine et la manipulation des éléments de l'environnement, ainsi que ses énigmes et ses combats stimulants. "Breath of the Wild" est acclamé par la critique pour son design novateur et sa beauté visuelle, et il est largement considéré comme l'un des meilleurs jeux de tous les temps.</p>
+        <img src="<?php echo "../../Image/Jeu/jeu". $id .".jpg"?>" alt="">
+        <h1 class="game-title"><?php echo getNomJeu($id, $bdd); ?></h1>
+        <p class="quantity-price">Quantité: <?php echo getQuantite($id, $bdd); ?> | Prix: <?php echo getPrix($id, $bdd);?>€</p>
+        <p class="description"><?php echo getDescription($id, $bdd);?></p>
         <button id="addToCart" class="add-to-cart-btn">Ajouter au panier</button>
         <div class="game-navigation">
             <button class="prev-btn">&#10094;</button>

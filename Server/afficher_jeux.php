@@ -1,32 +1,38 @@
 <?php
-// Example data
-$totalItems = 15; // Total number of items
-$itemsPerPage = 5; // Number of items per page
-$totalPages = ceil($totalItems / $itemsPerPage); // Calculate total pages
+$bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
 
-// Get current page from query string, default is 1
+$totalJeux = $bdd->query("SELECT COUNT(*) FROM jeux");
+$nbrJeux = $totalJeux->fetchColumn();
+
+$itemsPerPage = ceil($nbrJeux / 3); // Correction : Utilisation de ceil() pour obtenir le nombre d'éléments par page
+$totalPages = ceil($nbrJeux / $itemsPerPage); // Correction : Calcul du nombre total de pages
+
+// Obtenez la page actuelle à partir de la chaîne de requête, par défaut, c'est 1
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-$current_page = max(1, min($totalPages, intval($current_page))); // Ensure current page is within valid range
+$current_page = max(1, min($totalPages, intval($current_page))); // Correction : Assurez-vous que la page actuelle est dans la plage valide
 
-// Calculate offset
+// Calculez le décalage
 $offset = ($current_page - 1) * $itemsPerPage;
 
-// Example items for pagination
-$items = range($offset + 1, min($totalItems, $offset + $itemsPerPage));
+// Exemple d'éléments pour la pagination
+$jeux = $bdd->prepare("SELECT * FROM jeux LIMIT ?, ?"); // Correction : Utilisation de LIMIT pour obtenir les jeux de la page actuelle
+$jeux->bindParam(1, $offset, PDO::PARAM_INT);
+$jeux->bindParam(2, $itemsPerPage, PDO::PARAM_INT);
+$jeux->execute();
 
-// Display items for the current page
-echo "<ul>";
-foreach ($items as $item) {
-    echo "<li><a><img src='../../Image/Jeu/jeu". $item .".jpg'></a></li>";
+// Afficher les éléments pour la page actuelle
+echo "<ul id='list'>";
+while ($row = $jeux->fetch(PDO::FETCH_ASSOC)) {
+    echo "<li data-id='". $row['id'] ."'><a><img src='../../Image/Jeu/jeu". $row['id'] .".jpg' alt=''></a></li>";
 }
 echo "</ul>";
 
-// Display pagination links
+// Afficher les liens de pagination
 echo "<div class='pagination'>";
 if ($current_page > 1) {
-    echo "<a href='?page=1'>First</a>";
+    echo "<a href='?page=1'>Première</a>"; // Correction : "First" en "Première"
     $prev_page = $current_page - 1;
-    echo "<a href='?page=$prev_page'>Previous</a>";
+    echo "<a href='?page=$prev_page'>Précédente</a>"; // Correction : "Previous" en "Précédente"
 }
 
 for ($i = max(1, $current_page - 2); $i <= min($current_page + 2, $totalPages); $i++) {
@@ -36,7 +42,8 @@ for ($i = max(1, $current_page - 2); $i <= min($current_page + 2, $totalPages); 
 
 if ($current_page < $totalPages) {
     $next_page = $current_page + 1;
-    echo "<a href='?page=$next_page'>Next</a>";
-    echo "<a href='?page=$totalPages'>Last</a>";
+    echo "<a href='?page=$next_page'>Suivante</a>"; // Correction : "Next" en "Suivante"
+    echo "<a href='?page=$totalPages'>Dernière</a>"; // Correction : "Last" en "Dernière"
 }
 echo "</div>";
+?>
