@@ -105,3 +105,31 @@ function dialogModifier($nom, $quantite, $prix, $code, $description, $id)
               </form>
           </dialog>";
 }
+
+function getNomJeu($id, $bdd)
+{
+    $nom = $bdd->prepare("SELECT nom FROM jeux WHERE id=?");
+    $nom->execute([$id]);
+    return $nom->fetchColumn();
+}
+
+function getDescription($id, $bdd)
+{
+    $description = $bdd->prepare("SELECT description FROM jeux WHERE id=?");
+    $description->execute([$id]);
+    return $description->fetchColumn();
+}
+
+function getQuantite($id, $bdd)
+{
+    $quantite = $bdd->prepare("SELECT quantité FROM jeux WHERE id=?");
+    $quantite->execute([$id]);
+    return $quantite->fetchColumn();
+}
+
+function getPrix($id, $bdd)
+{
+    $prix = $bdd->prepare("SELECT prix FROM jeux WHERE id=?");
+    $prix->execute([$id]);
+    return $prix->fetchColumn();
+}

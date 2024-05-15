@@ -1,0 +1,33 @@
+#chemin ul {
+    justify-content: left;
+    margin-left: 20px;
+}
+
+#chemin a {
+    font-size: 15px;
+}
+
+#chemin ul li {
+    margin: 0;
+}
+
+main {
+    margin-top: 15vh;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin-right: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--clr-tertiary);
+    font-size: 30px;
+}

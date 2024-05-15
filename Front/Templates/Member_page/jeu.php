@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nom du jeu - GameNexus</title>
+    <title>Jeu - GameNexus</title>
     <!-- CSS -->
+    <link rel="stylesheet" href="../../Css/Structure/base.css" />
+    <link rel="stylesheet" href="../../Css/Structure/header.css" />
     <link rel="stylesheet" href="../../Css/jeu.css" />
+    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 </head>
 <body>
+
+<?php
+$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
+include '../../../Server/Jeux/services.php';
+include '../../../Server/Articles/controllers.php';
+addArticleController($bdd);
+?>
 
 <header>
     <nav>
@@ -26,11 +37,14 @@
 
 <main>
     <div class="game-details">
-        <img src="../../Image/jeu1.jpg" alt="Nom du jeu">
-        <h1 class="game-title">Nom du jeu</h1>
-        <p class="quantity-price">Quantité: 10 | Prix: 51€</p>
-        <p class="description">Description du jeu : "The Legend of Zelda: Breath of the Wild" est un jeu vidéo d'action-aventure développé et publié par Nintendo. Sorti en 2017 sur la console Nintendo Switch et la Wii U, il offre aux joueurs une expérience immersive dans un vaste monde ouvert. Dans ce jeu, les joueurs contrôlent Link, le protagoniste, alors qu'il explore le royaume de Hyrule après un long sommeil. Le jeu se distingue par sa liberté d'exploration, ses mécaniques de jeu innovantes, telles que la grimpe, la cuisine et la manipulation des éléments de l'environnement, ainsi que ses énigmes et ses combats stimulants. "Breath of the Wild" est acclamé par la critique pour son design novateur et sa beauté visuelle, et il est largement considéré comme l'un des meilleurs jeux de tous les temps.</p>
-        <button id="addToCart" class="add-to-cart-btn">Ajouter au panier</button>
+        <img src="<?php echo "../../Image/Jeu/jeu". $id .".jpg"?>" alt="">
+        <h1 class="game-title"><?php echo getNomJeu($id, $bdd); ?></h1>
+        <p class="quantity-price">Quantité: <?php echo getQuantite($id, $bdd); ?> | Prix: <?php echo getPrix($id, $bdd);?>€</p>
+        <p class="description"><?php echo getDescription($id, $bdd);?></p>
+        <form action="" method="post">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+            <input type="submit" name="addArticle" id="addToCart" class="add-to-cart-btn" value="Ajouter au panier">
+        </form>
         <div class="game-navigation">
             <button class="prev-btn">&#10094;</button>
             <button class="next-btn">&#10095;</button>

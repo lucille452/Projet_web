@@ -80,4 +80,10 @@
 <!-- End Footer -->
 
 </body>
+<script src="../../Js/membre/jeux.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        openDetailsPage()
+    })
+</script>
 </html>
