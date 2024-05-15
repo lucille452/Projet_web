@@ -19,6 +19,11 @@ $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
 include '../../../Server/Jeux/services.php';
 include '../../../Server/Articles/controllers.php';
 addArticleController($bdd);
+
+// Correction : récupération du nombre de jeux
+$jeux_query = $bdd->query("SELECT COUNT(id) AS total FROM jeux");
+$jeux_data = $jeux_query->fetch(PDO::FETCH_ASSOC);
+$nbrJeux = $jeux_data['total'];
 ?>
 
 <header>
@@ -94,6 +99,30 @@ addArticleController($bdd);
     </div>
 </footer>
 <!-- End Footer -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const maxId = <?php echo $nbrJeux; ?>;
 
+        prevBtn.addEventListener('click', function() {
+            const id = parseInt("<?php echo $id; ?>");
+            if (id > 1) {
+                window.location.href = `?id=${id - 1}`;
+            } else {
+                window.location.href = `?id=${maxId}`;
+            }
+        });
+
+        nextBtn.addEventListener('click', function() {
+            const id = parseInt("<?php echo $id; ?>");
+            if (id < maxId) {
+                window.location.href = `?id=${id + 1}`;
+            } else {
+                window.location.href = `?id=1`;
+            }
+        });
+    });
+</script>
 </body>
 </html>
