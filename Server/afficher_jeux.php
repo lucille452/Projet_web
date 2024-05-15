@@ -23,7 +23,7 @@ $jeux->execute();
 // Afficher les éléments pour la page actuelle
 echo "<ul id='list'>";
 while ($row = $jeux->fetch(PDO::FETCH_ASSOC)) {
-    echo "<li data-id='". $row['id'] ."'><a><img src='../../Image/Jeu/jeu". $row['id'] .".jpg' alt=''></a></li>";
+    echo "<li data-id='". $row['id'] ."'><a><img src='../../Image/Jeu/jeu". $row['id'] .".jpg' alt=''></a><p>".$row['nom']."</p></li>";
 }
 echo "</ul>";
 

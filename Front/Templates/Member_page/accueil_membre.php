@@ -10,7 +10,21 @@
     <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 </head>
 <body>
+<?php
+$bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
+include '../../../Server/Jeux/services.php';
+include '../../../Server/Articles/controllers.php';
+addArticleController($bdd);
 
+// Traitement de la recherche
+$searchResults = [];
+if(isset($_GET['search'])) {
+    $search = $_GET['search'];
+    $query = $bdd->prepare("SELECT * FROM jeux WHERE nom LIKE ?");
+    $query->execute(["%$search%"]);
+    $searchResults = $query->fetchAll(PDO::FETCH_ASSOC);
+}
+?>
 <header>
     <nav>
         <ul>
@@ -26,15 +40,65 @@
 </header>
 
 <main>
-    <form method="post">
-        <input name="search" placeholder="Rechercher" type="text">
-        <button type="submit"></button>
-    </form>
-<article>
-    <?php
-    include "../../../Server/afficher_jeux.php";
-    ?>
-</article>
+    <div class="search-container">
+        <form action="" method="get">
+            <input name="search" placeholder="Rechercher" type="text">
+            <button type="submit"></button>
+        </form>
+    </div>
+
+    <article>
+        <?php if(isset($_GET['search'])): ?>
+            <div class="search-results">
+                <h2>Résultats de la recherche pour "<?php echo $_GET['search']; ?>" :</h2>
+                <ul id="list">
+                    <?php
+                    // Pagination
+                    $itemsPerPage = 5;
+                    $totalResults = count($searchResults);
+                    $totalPages = ceil($totalResults / $itemsPerPage);
+                    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+                    $currentPage = max(1, min($totalPages, intval($currentPage)));
+                    $offset = ($currentPage - 1) * $itemsPerPage;
+
+                    $currentPageResults = array_slice($searchResults, $offset, $itemsPerPage);
+
+                    foreach($currentPageResults as $result): ?>
+                        <li data-id="<?php echo $result['id']; ?>">
+                            <a href="http://localhost/Projet_web/Front/Templates/Member_page/jeu.php?id=<?php echo $result['id']; ?>">
+                                <img src='../../Image/Jeu/jeu<?php echo $result['id']; ?>.jpg' alt=''>
+                            </a>
+                            <p><?php echo $result['nom']; ?></p> <!-- Ajout du titre du jeu -->
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <?php
+                    if ($currentPage > 1) {
+                        echo "<a href='?search=".urlencode($_GET['search'])."&page=1'>Première</a>";
+                        $prev_page = $currentPage - 1;
+                        echo "<a href='?search=".urlencode($_GET['search'])."&page=$prev_page'>Précédente</a>";
+                    }
+
+                    for ($i = 1; $i <= $totalPages; $i++) {
+                        $active = ($i == $currentPage) ? "active" : "";
+                        echo "<a class='$active' href='?search=".urlencode($_GET['search'])."&page=$i'>$i</a>";
+                    }
+
+                    if ($currentPage < $totalPages) {
+                        $next_page = $currentPage + 1;
+                        echo "<a href='?search=".urlencode($_GET['search'])."&page=$next_page'>Suivante</a>";
+                        echo "<a href='?search=".urlencode($_GET['search'])."&page=$totalPages'>Dernière</a>";
+                    }
+                    ?>
+                </div>
+            </div>
+        <?php else: ?>
+            <?php include "../../../Server/afficher_jeux.php"; ?>
+        <?php endif; ?>
+    </article>
 </main>
 
 <!-- Footer -->
