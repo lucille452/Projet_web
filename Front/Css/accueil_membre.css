@@ -127,8 +127,8 @@ nav ul li img:hover {
 
 /* Main */
 main {
-    margin-top: 12vh;
-    margin-bottom: 30vh;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
     text-align: center;
     align-items: center;
     display: block;
@@ -185,27 +185,38 @@ main ul li img{
     height: auto;
 }
 
+main ul li p {
+    margin-top: 10px; /* Ajout d'espace au-dessus du nom du jeu */
+    margin-bottom: -10px; /* Réduction de l'espace sous le nom du jeu */
+    padding: 0; /* Réinitialisation du padding pour éviter tout espace supplémentaire */
+}
+
+
 .pagination {
-    margin: 20px 0;
+    margin-top: 5vh;
     text-align: center;
 }
+
 .pagination a {
     color: var(--clr-tertiary);
-    float: left;
+    display: inline-block;
     padding: 8px 16px;
     text-decoration: none;
     transition: background-color .3s;
     border: 1px solid #ddd;
     margin: 0 4px;
 }
+
 .pagination a.active {
     background-color: var(--clr-primary);
     color: white;
     border: 1px solid var(--clr-primary);
 }
+
 .pagination a:hover:not(.active) {
     background-color: #ddd;
 }
+
 /* End Main */
 
 /* Footer */

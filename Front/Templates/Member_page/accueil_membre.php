@@ -68,6 +68,7 @@ if(isset($_GET['search'])) {
                             <a href="http://localhost/Projet_web/Front/Templates/Member_page/jeu.php?id=<?php echo $result['id']; ?>">
                                 <img src='../../Image/Jeu/jeu<?php echo $result['id']; ?>.jpg' alt=''>
                             </a>
+                            <p><?php echo $result['nom']; ?></p> <!-- Ajout du titre du jeu -->
                         </li>
                     <?php endforeach; ?>
                 </ul>
