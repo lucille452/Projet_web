@@ -9,9 +9,11 @@ function addArticleController($bdd)
     }
 }
 
-function deleteArticleController($bdd)
+function deleteArticleController($bdd) : bool
 {
     if (isset($_POST['supprimer'])) {
         deleteArticleMiddleware($bdd);
+        return true;
     }
+    return false;
 }

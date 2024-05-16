@@ -135,6 +135,12 @@
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+header {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
 main {
     margin-top: 15vh;
 }
@@ -161,6 +167,23 @@ a:hover {
 
 .product-name a{
     color: var(--clr-primary);
+}
+
+.product button {
+    border: none;
+    background: none;
+    margin-left: 10px;
+    padding: 0;
+}
+
+.product button:hover {
+    cursor: pointer;
+    background: none;
+}
+
+.product button img {
+    height: 20px;
+    width: 20px;
 }
 
 /* Footer */

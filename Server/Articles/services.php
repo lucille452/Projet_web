@@ -31,19 +31,42 @@ function getArticles($bdd)
     while ($article = $articles->fetch(PDO::FETCH_ASSOC)) {
         $jeu = $bdd->prepare("SELECT * FROM jeux WHERE id=?");
         $jeu->execute([$article['id_jeu']]);
-        
+
         while ($row = $jeu->fetch(PDO::FETCH_ASSOC)) {
             echo "<div class='product'><div class='row'><div class='col-md-3'>";
             echo "<img class='img-fluid mx-auto d-block image' src='../../../Front/Image/Jeu/jeu" . $article['id_jeu'] . ".jpg'></div>";
             echo "<div class='col-md-8'><div class='info'><div class='row'><div class='col-md-5 product-name'><div class='product-name'>";
             echo "<a href='#'>" . $row['nom'] . "</a>";
             echo "<div class='product-info'><div><span class='value'>". $row['quantité'] ."</span> en stock</div></div></div></div>";
-            echo "<div class='col-md-4 quantity'><label for='quantity'>Quantité :</label>";
-            echo "<input id='quantity' type='number' value ='1' class='form-control quantity-input'></div>";
-            echo "<div class='col-md-3 price'><span>". $row['prix'] ."€</span></div></div></div></div></div></div>";
+            echo "<div class='col-md-4 quantity'><label>Quantité :</label>";
+            echo "<input type='number' value ='1' class='form-control quantity-input'></div>";
+            echo "<div class='col-md-3 price'><span>". $row['prix'] ."€</span>";
+            echo "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#supModal" . $article['id'] . "'><img src='../../../Front/Image/supprimer.png'></button></div></div></div></div></div></div>";
+            dialogPanier($article['id'], $row['nom']);
         }
     }
 }
+
+function dialogPanier($id, $nom)
+{
+        // Modal correspondant
+        echo "<div class='modal fade' id='supModal" . $id . "' tabindex='-1' role='dialog' aria-labelledby='supModalLabel' aria-hidden='true'>";
+        echo "<div class='modal-dialog' role='document'>";
+        echo "<div class='modal-content'>";
+        echo "<div class='modal-header'>";
+        echo "<h5 class='modal-title' id='supModalLabel'>Voulez-vous supprimer le jeu " . $nom . " ?</h5>";
+        echo "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
+        echo "<span aria-hidden='true'>&times;</span>";
+        echo "</button>";
+        echo "</div>";
+        echo "<div class='modal-footer'>";
+        echo "<form action='' method='post'>";
+        echo "<input type='hidden' name='id' value='". $id ."'>";
+        echo "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Annuler</button>";
+        echo "<button type='submit' name='supprimer' class='btn btn-danger'>Supprimer</button>";
+        echo "</form></div></div></div></div>";
+}
+
 
 function getTotalPrix($bdd)
 {

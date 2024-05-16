@@ -12,6 +12,5 @@ function addArticleMiddleware($bdd)
 function deleteArticleMiddleware($bdd)
 {
     $id = $_POST['id'];
-
     deleteArticle($bdd, $id);
 }

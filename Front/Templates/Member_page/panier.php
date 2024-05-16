@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panier - GameNexus</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="../../Css/Structure/base.css">
-    <link rel="stylesheet" href="../../Css/Structure/header.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="../../Css/Structure/base.css">
+    <link rel="stylesheet" href="../../Css/Structure/header.css">
+    <link rel="stylesheet" href="../../Css/Structure/dialog.css">
     <link rel="stylesheet" href="../../Css/Membre/panier.css" />
     <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 </head>
@@ -37,17 +38,22 @@
                     <div class="col-md-12 col-lg-8">
                         <div class="items">
                             <?php
-                            include '../../../Server/Articles/services.php';
+                            include '../../../Server/Articles/controllers.php';
                             $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
 
                             getArticles($bdd);
+                            if (deleteArticleController($bdd)) {
+                                header("Location: panier.php");
+                                exit;
+                            }
                             ?>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-4">
                         <div class="summary">
-                            <h3>Récapitulatif de la commande</h3>
+                            <h3>Récapitulatif de commande</h3>
                             <div class="summary-item"><span class="text">Sous total</span><span class="price"><?php echo getTotalPrix($bdd)?>€</span></div>
+                            <input type="hidden" name="prixTotal" value="<?php echo getTotalPrix($bdd)?>">
                             <div class="summary-item"><span class="text">Remise</span><span class="price">0€</span></div>
                             <div class="summary-item"><span class="text">Total</span><span class="price"><?php echo getTotalPrix($bdd)?>€</span></div>
                             <button type="button" class="btn btn-primary btn-lg btn-block">Payer</button>
@@ -100,6 +106,7 @@
     </div>
 </footer>
 <!-- End Footer -->
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
