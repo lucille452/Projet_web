@@ -36,4 +36,17 @@ if(isset($_POST['addAmount'])) {
         }
     }
 }
-?>
+
+
+function updateSoldePaid($bdd, $prix)
+{
+    $paid = $bdd->prepare("UPDATE membres SET solde = solde - ? WHERE id=?");
+    $paid->execute([$prix, getIdMembre($bdd)]);
+}
+
+function getSolde($bdd)
+{
+    $solde = $bdd->prepare("SELECT solde FROM membres WHERE id=?");
+    $solde->execute([getIdMembre($bdd)]);
+    return $solde->fetchColumn();
+}

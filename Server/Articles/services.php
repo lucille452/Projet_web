@@ -80,3 +80,19 @@ function getTotalPrix($bdd)
 
     return $total;
 }
+
+function getHiddenIDJeu($bdd)
+{
+    $jeux = $bdd->prepare("SELECT * FROM jeux LEFT JOIN articles ON jeux.id = articles.id_jeu WHERE articles.id_membre=?");
+    $jeux->execute([getIdMembre($bdd)]);
+
+    while ($row = $jeux->fetch(PDO::FETCH_ASSOC)) {
+        echo "<input type='hidden' name='". $row['id'] ."' value='". $row['id'] ."'>";
+    }
+}
+
+function getNbrArticle($bdd)
+{
+    $nbrArticle = $bdd->prepare("SELECT COUNT(*) FROM articles WHERE id_membre=?");
+    return $nbrArticle->execute([getIdMembre($bdd)]);
+}

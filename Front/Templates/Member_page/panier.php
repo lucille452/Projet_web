@@ -1,3 +1,7 @@
+<?php
+include "../../../Server/Pages/panier.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,25 +42,25 @@
                     <div class="col-md-12 col-lg-8">
                         <div class="items">
                             <?php
-                            include '../../../Server/Articles/controllers.php';
                             $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
 
                             getArticles($bdd);
-                            if (deleteArticleController($bdd)) {
-                                header("Location: panier.php");
-                                exit;
-                            }
                             ?>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-4">
                         <div class="summary">
+                            <form action="" method="post">
                             <h3>Récapitulatif de commande</h3>
                             <div class="summary-item"><span class="text">Sous total</span><span class="price"><?php echo getTotalPrix($bdd)?>€</span></div>
                             <input type="hidden" name="prixTotal" value="<?php echo getTotalPrix($bdd)?>">
+                                <?php
+                                getHiddenIDJeu($bdd);
+                                ?>
                             <div class="summary-item"><span class="text">Remise</span><span class="price">0€</span></div>
                             <div class="summary-item"><span class="text">Total</span><span class="price"><?php echo getTotalPrix($bdd)?>€</span></div>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Payer</button>
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="payer" value="Payer">
+                            </form>
                         </div>
                     </div>
                 </div>
