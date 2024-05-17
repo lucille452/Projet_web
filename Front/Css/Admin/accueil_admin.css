@@ -20,6 +20,10 @@ main{
     margin-bottom: 10px;
     margin-right: 10px;
     box-shadow: 5px 5px 10px #b7b7b7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .first {
@@ -41,6 +45,11 @@ main{
 
 .second {
     width: 50%;
+}
+
+.h2 {
+    margin-top: 20px;
+    font-size: 50px;
 }
 
 img{

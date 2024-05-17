@@ -15,12 +15,18 @@ function getNbrMembres($bdd)
 
 function getRevenuTotaux($bdd)
 {
+    $revenuTotaux = $bdd->query("SELECT revenu_totaux FROM tableau_de_bord");
+    $data = $revenuTotaux->fetchColumn();
 
+    echo "<h2 class='h2'>".$data."&nbsp;€</h2>";
 }
 
 function getVentesTotales($bdd)
 {
+    $ventesTotales = $bdd->query("SELECT ventes_totales FROM tableau_de_bord");
+    $data = $ventesTotales->fetchColumn();
 
+    echo "<h2 class='h2'>".$data."</h2>";
 }
 
 function getRevenus7jours($bdd)
