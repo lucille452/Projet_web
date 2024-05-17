@@ -55,7 +55,7 @@ include "../../../Server/Pages/panier.php";
                             <div class="summary-item"><span class="text">Sous total</span><span class="price"><?php echo getTotalPrix($bdd)?>€</span></div>
                             <input type="hidden" name="prixTotal" value="<?php echo getTotalPrix($bdd)?>">
                                 <?php
-                                getHiddenIDJeu($bdd);
+                                getHiddenIDArticle($bdd);
                                 ?>
                             <div class="summary-item"><span class="text">Remise</span><span class="price">0€</span></div>
                             <div class="summary-item"><span class="text">Total</span><span class="price"><?php echo getTotalPrix($bdd)?>€</span></div>

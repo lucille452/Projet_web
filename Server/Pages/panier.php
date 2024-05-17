@@ -24,16 +24,20 @@ if (isset($_POST['payer'])) {
 //    MEMBRE
         updateSoldePaid($bdd, $totalPrix);
 
+//    JEUX
+        updateQuantite($bdd);
+
 // delete article du panier une fois acheté
         $lastId = $bdd->prepare("SELECT id FROM articles WHERE id_membre=? ORDER BY id DESC LIMIT 1");
         $lastId->execute([getIdMembre($bdd)]);
-        $lastId->fetchColumn();
+        $id = $lastId->fetchColumn();
 
-        for ($i = 1; $i <= $lastId; $i++) {
-            $idArticle = $_POST[$i];
-
-            if (!empty($idArticle)) {
-                deleteArticle($bdd, $idArticle);
+        for ($i = 1; $i <= intval($id); $i++) {
+            if (isset($_POST['article'.$i])) {
+                $idArticle = $_POST['article'.$i];
+                if (!empty($idArticle)) {
+                    deleteArticle($bdd, $idArticle);
+                }
             }
         }
     } else {

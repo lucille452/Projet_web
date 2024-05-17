@@ -81,13 +81,13 @@ function getTotalPrix($bdd)
     return $total;
 }
 
-function getHiddenIDJeu($bdd)
+function getHiddenIDArticle($bdd)
 {
-    $jeux = $bdd->prepare("SELECT * FROM jeux LEFT JOIN articles ON jeux.id = articles.id_jeu WHERE articles.id_membre=?");
-    $jeux->execute([getIdMembre($bdd)]);
+    $articles = $bdd->prepare("SELECT * FROM jeux LEFT JOIN articles ON jeux.id = articles.id_jeu WHERE articles.id_membre=?");
+    $articles->execute([getIdMembre($bdd)]);
 
-    while ($row = $jeux->fetch(PDO::FETCH_ASSOC)) {
-        echo "<input type='hidden' name='". $row['id'] ."' value='". $row['id'] ."'>";
+    while ($row = $articles->fetch(PDO::FETCH_ASSOC)) {
+        echo "<input type='hidden' name='article". $row['id'] ."' value='". $row['id'] ."'>";
     }
 }
 
@@ -95,4 +95,15 @@ function getNbrArticle($bdd)
 {
     $nbrArticle = $bdd->prepare("SELECT COUNT(*) FROM articles WHERE id_membre=?");
     return $nbrArticle->execute([getIdMembre($bdd)]);
+}
+
+function updateQuantite($bdd)
+{
+    $jeux = $bdd->prepare("SELECT * FROM articles LEFT JOIN jeux ON jeux.id = articles.id_jeu WHERE articles.id_membre=?");
+    $jeux->execute([getIdMembre($bdd)]);
+
+    while ($row = $jeux->fetch(PDO::FETCH_ASSOC)) {
+        $updateQuantite = $bdd->prepare("UPDATE jeux SET quantité = quantité - ? WHERE id = ? ");
+        $updateQuantite->execute([1, $row['id']]);
+    }
 }
