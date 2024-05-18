@@ -73,34 +73,36 @@ include "../../../Server/Pages/panier.php";
 <footer>
     <div class="container2 flex">
         <div class="footer-about">
-            <h2>About</h2>
+            <h2>À propos</h2>
             <p>
-                Nous sommes l'entreprise de restauration Restôt,
-                nous avons lancé un site web pour les commandes en ligne après une campagne réussie.
-                Une base de données relationnelle a été mise en place pour optimiser la gestion des commandes,
-                menus et clients, renforçant ainsi la position de Restôt sur le marché.
+                Game Nexus, fondée en 2022, est une entreprise dynamique spécialisée dans la vente de jeux vidéo en ligne.
+                Nous proposons un catalogue diversifié, régulièrement mis à jour avec les dernières nouveautés et les classiques
+                du jeu vidéo, en collaboration avec les plus grands éditeurs. Notre mission est de fournir une plateforme fiable
+                et accessible pour découvrir, acheter et télécharger des jeux, tout en créant une communauté dynamique de joueurs.
+                Nous aspirons à devenir la référence mondiale en offrant une expérience utilisateur exceptionnelle, des promotions
+                exclusives et un support client de qualité.
             </p>
         </div>
 
         <div class="footer-category">
-            <h2>What you can discover</h2>
+            <h2>Services</h2>
 
             <ul>
-                <li>Biryani</li>
-                <li>Chicken</li>
-                <li>Pizza</li>
-                <li>Burger</li>
-                <li>Pasta</li>
+                <li>Téléchargement immédiat</li>
+                <li>Offres promotionnelles</li>
+                <li>Avis et recommandations</li>
+                <li>Communauté</li>
+                <li>Support client</li>
             </ul>
         </div>
 
         <div class="get-in-touch">
-            <h2>Get in touch</h2>
+            <h2>Valeurs</h2>
             <ul>
-                <li>Account</li>
-                <li>Support Center</li>
-                <li>Feedback</li>
-                <li>Suggession</li>
+                <li>Passion pour le jeu</li>
+                <li>Innovation</li>
+                <li>Intégrité</li>
+                <li>Communauté</li>
             </ul>
         </div>
     </div>
