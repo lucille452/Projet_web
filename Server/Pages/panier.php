@@ -41,7 +41,17 @@ if (isset($_POST['payer'])) {
             }
         }
     } else {
-        echo "Vous n'avez pas assez d'argent, veuillez en ajouter sur votre compte.";
+        // Modal correspondant
+        echo "<div class='modal fade' id='supModal' tabindex='-1' role='dialog' aria-labelledby='supModalLabel' aria-hidden='true'>";
+        echo "<div class='modal-dialog' role='document'>";
+        echo "<div class='modal-content'>";
+        echo "<div class='modal-header'>";
+        echo "<h5 class='modal-title' id='supModalLabel'>Vous n'avez pas assez d'argent, veuillez en ajouter sur votre compte.</h5>";
+        echo "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
+        echo "<span aria-hidden='true'>&times;</span>";
+        echo "</button>";
+        echo "</div>";
+        echo "</div></div></div>";
     }
 
 

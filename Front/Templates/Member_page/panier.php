@@ -59,7 +59,7 @@ include "../../../Server/Pages/panier.php";
                                 ?>
                             <div class="summary-item"><span class="text">Remise</span><span class="price">0€</span></div>
                             <div class="summary-item"><span class="text">Total</span><span class="price"><?php echo getTotalPrix($bdd)?>€</span></div>
-                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="payer" value="Payer">
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="payer" value="Payer" data-toggle='modal' data-target='#supModal'>
                             </form>
                         </div>
                     </div>
