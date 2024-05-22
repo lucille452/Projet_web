@@ -16,6 +16,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
     <link rel="stylesheet" href="../../Css/profil.css" />
     <link rel="stylesheet" href="../../Css/Structure/dialog.css" />
     <script src="../../Js/profil.js"></script>
+    <link rel="shortcut icon" type="image/png" href="../../Image/logo.png"/>
 </head>
 <body>
 

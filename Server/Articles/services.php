@@ -23,7 +23,7 @@ function getIdMembre($bdd)
 
 }
 
-function getArticles($bdd)
+function getArticlesPanier($bdd)
 {
     $articles = $bdd->prepare("SELECT * FROM articles WHERE id_membre=?");
     $articles->execute([getIdMembre($bdd)]);
@@ -109,5 +109,17 @@ function updateQuantite($bdd)
     while ($row = $jeux->fetch(PDO::FETCH_ASSOC)) {
         $updateQuantite = $bdd->prepare("UPDATE jeux SET quantité = quantité - ? WHERE id = ? ");
         $updateQuantite->execute([1, $row['id']]);
+    }
+}
+
+function getArticlesFacture($bdd)
+{
+    $articles = $bdd->prepare("SELECT * FROM articles LEFT JOIN jeux ON jeux.id = articles.id_jeu WHERE articles.id_membre=?");
+    $articles->execute([getIdMembre($bdd)]);
+
+    while ($row = $articles->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr><td>1</td>";
+        echo "<td>". $row['nom'] ."</td>";
+        echo "<td>". $row['prix'] ."</td></tr>";
     }
 }

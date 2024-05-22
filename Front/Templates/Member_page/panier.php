@@ -44,7 +44,7 @@ include "../../../Server/Pages/panier.php";
                             <?php
                             $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
 
-                            getArticles($bdd);
+                            getArticlesPanier($bdd);
                             ?>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ include "../../../Server/Pages/panier.php";
                                 ?>
                             <div class="summary-item"><span class="text">Remise</span><span class="price">0€</span></div>
                             <div class="summary-item"><span class="text">Total</span><span class="price"><?php echo getTotalPrix($bdd)?>€</span></div>
-                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="payer" value="Payer" data-toggle='modal' data-target='#supModal'>
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" name="payer" value="Payer">
                             </form>
                         </div>
                     </div>
@@ -112,7 +112,30 @@ include "../../../Server/Pages/panier.php";
     </div>
 </footer>
 <!-- End Footer -->
+
+<!-- Modal -->
+<div class="modal fade" id="supModal" tabindex="-1" role="dialog" aria-labelledby="supModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="supModalLabel">Alerte de Paiement</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Vous n'avez pas assez d'argent, veuillez en ajouter sur votre compte.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -4,6 +4,11 @@ include '/xampp/htdocs/Projet_web/Server/Articles/controllers.php';
 include '/xampp/htdocs/Projet_web/Server/Tableau_de_bord/services.php';
 include '/xampp/htdocs/Projet_web/Server/Membres/update_solde.php';
 
+require '/xampp/htdocs/Projet_web/Dompdf/vendor/autoload.php';
+
+use Dompdf\Dompdf;
+
+
 $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
 
 if (deleteArticleController($bdd)) {
@@ -15,6 +20,7 @@ if (isset($_POST['payer'])) {
     $totalPrix = $_POST['prixTotal'];
 
     if ($totalPrix <= getSolde($bdd)) {
+
 //    ADMIN
         addRevenus($bdd, $totalPrix);
 
@@ -26,6 +32,9 @@ if (isset($_POST['payer'])) {
 
 //    JEUX
         updateQuantite($bdd);
+
+//    FACTURE
+        facturePdf();
 
 // delete article du panier une fois acheté
         $lastId = $bdd->prepare("SELECT id FROM articles WHERE id_membre=? ORDER BY id DESC LIMIT 1");
@@ -40,20 +49,30 @@ if (isset($_POST['payer'])) {
                 }
             }
         }
+        header("Location: panier.php");
+
     } else {
-        // Modal correspondant
-        echo "<div class='modal fade' id='supModal' tabindex='-1' role='dialog' aria-labelledby='supModalLabel' aria-hidden='true'>";
-        echo "<div class='modal-dialog' role='document'>";
-        echo "<div class='modal-content'>";
-        echo "<div class='modal-header'>";
-        echo "<h5 class='modal-title' id='supModalLabel'>Vous n'avez pas assez d'argent, veuillez en ajouter sur votre compte.</h5>";
-        echo "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
-        echo "<span aria-hidden='true'>&times;</span>";
-        echo "</button>";
-        echo "</div>";
-        echo "</div></div></div>";
+        echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    let modal = new bootstrap.Modal(document.getElementById('supModal'));
+                    modal.show();
+                });
+              </script>";
     }
-
-
+    header("Location: panier.php");
 }
 
+function facturePdf()
+{
+    $dompdf = new Dompdf();
+
+    ob_start();
+
+    include "/xampp/htdocs/Projet_web/Front/Templates/Member_page/facture.php";
+    $html = ob_get_clean();
+
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->render();
+    $dompdf->stream('facture.pdf');
+}
