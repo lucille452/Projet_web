@@ -66,20 +66,6 @@ function dialogSup($nom, $id)
           </dialog>";
 }
 
-function dialogSup2($nom, $id)
-{
-    echo "<dialog id='supDialog". $id . "' style='color: #CA7AD0FF;'>
-              <form action='' method='post'>
-                  <button onclick='closeSup()'>
-                      <img src='../../../Front/Image/fermer.png'>
-                  </button>
-                  <h4>Voulez-vous supprimer votre compte " . $nom ." ?</h4>
-                  <input type='hidden' name='id' value='". $id ."'>
-                <input type='submit' name='supprimer' value='Supprimer'>
-              </form>
-          </dialog>";
-}
-
 function dialogMod($nom, $prenom, $mail, $birth, $id)
 {
     echo  "<dialog id='modDialog". $id ."' style='color: #e2b946;'>

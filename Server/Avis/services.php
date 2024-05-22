@@ -1,10 +1,10 @@
 <?php
 
-function addAvis($bdd, $note, $description) {
-    $newAvis = $bdd->prepare("INSERT INTO avis(note, description) VALUES (?,?) ");
-    $newAvis->execute([$note, $description]);
+function addAvis($bdd, $note, $description, $idJeu, $idMembre) {
+    $newAvis = $bdd->prepare("INSERT INTO avis(note, description, id_jeu, id_membre) VALUES (?, ?, ?, ?) ");
+    $newAvis->execute([$note, $description, $idJeu, $idMembre]);
 
-    header("Location: ../Member_page/jeu.php");
+    header("Location: ../Member_page/jeu.php?id=${idJeu}");
 }
 
 function updateAvis($bdd, $note, $description, $id) {

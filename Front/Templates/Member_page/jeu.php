@@ -18,7 +18,10 @@ $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $bdd = new PDO('mysql:host=localhost;dbname=projet_dev;charset=utf8','root','');
 include '../../../Server/Jeux/services.php';
 include '../../../Server/Articles/controllers.php';
+include '../../../Server/Avis/controllers.php';
+
 addArticleController($bdd);
+addAvisController($bdd);
 
 // Correction : récupération du nombre de jeux
 $jeux_query = $bdd->query("SELECT COUNT(id) AS total FROM jeux");
@@ -62,12 +65,12 @@ $comments = $comments_query->fetchAll(PDO::FETCH_ASSOC);
         <div class="comments-section">
             <!-- Formulaire pour soumettre un avis -->
             <form action="" method="post">
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <input type="hidden" name="idJeu" value="<?php echo $id; ?>">
                 <label for="note">Note (1-5):</label>
                 <input type="number" id="note" name="note" min="1" max="5" required>
                 <label for="description">Commentaire:</label>
                 <textarea id="description" name="description" required></textarea>
-                <input type="submit" name="submitReview" value="Soumettre">
+                <input type="submit" name="addComment" value="Soumettre">
             </form>
             <h2>Commentaires</h2>
             <?php foreach ($comments as $comment): ?>

@@ -1,9 +1,9 @@
 <?php
 include 'middlewares.php';
 
-function addAvisMiddleware($bdd)
+function addAvisController($bdd)
 {
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['addComment'])) {
         addAvisMiddleware($bdd);
     }
 }

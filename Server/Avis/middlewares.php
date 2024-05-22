@@ -4,9 +4,10 @@ include 'services.php';
 function addAvisMiddleware($bdd) {
     $note = $_POST['note'];
     $description = $_POST['description'];
+    $idJeu = $_POST['idJeu'];
 
     if (!empty($note) && !empty($description)) {
-        addAvis($bdd, $note, $description);
+        addAvis($bdd, $note, $description, $idJeu, getIdMembre($bdd));
     } else {
         echo "Veuillez remplir tous les champs.";
     }
