@@ -95,6 +95,95 @@ main {
     right: 20px;
 }
 
+/* Styles pour la section des commentaires */
+.comments-section {
+    margin-top: 50px;
+}
+
+.comments-section form {
+    margin-bottom: 30px;
+}
+
+.comments-section form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.comments-section form input[type="number"],
+.comments-section form textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.comments-section form input[type="number"] {
+    width: 60px;
+}
+
+.comments-section form textarea {
+    width: calc(100% - 80px);
+}
+
+.comments-section form input[type="submit"] {
+    background-color: var(--clr-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.comments-section form input[type="submit"]:hover {
+    background-color: #1c7d70;
+}
+
+.comments-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.comment p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.comment .note {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.comment p:last-child {
+    margin-bottom: 0;
+}
+
+.add-comment-btn {
+    background-color: var(--clr-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.add-comment-btn:hover {
+    background-color: #1c7d70;
+}
+
+
 
 /* Footer */
 footer {

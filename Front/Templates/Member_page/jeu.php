@@ -24,6 +24,10 @@ addArticleController($bdd);
 $jeux_query = $bdd->query("SELECT COUNT(id) AS total FROM jeux");
 $jeux_data = $jeux_query->fetch(PDO::FETCH_ASSOC);
 $nbrJeux = $jeux_data['total'];
+
+$comments_query = $bdd->prepare("SELECT description, note FROM avis WHERE id_jeu = ?");
+$comments_query->execute([$id]);
+$comments = $comments_query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <header>
@@ -55,6 +59,24 @@ $nbrJeux = $jeux_data['total'];
             <button class="next-btn">&#10095;</button>
         </div>
         <a href="accueil_membre.php" class="close-btn">&times;</a>
+        <div class="comments-section">
+            <!-- Formulaire pour soumettre un avis -->
+            <form action="" method="post">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <label for="note">Note (1-5):</label>
+                <input type="number" id="note" name="note" min="1" max="5" required>
+                <label for="description">Commentaire:</label>
+                <textarea id="description" name="description" required></textarea>
+                <input type="submit" name="submitReview" value="Soumettre">
+            </form>
+            <h2>Commentaires</h2>
+            <?php foreach ($comments as $comment): ?>
+                <div class='comment'>
+                    <p>Note : <?php echo htmlspecialchars($comment['note']) ?>/5</p>
+                    <p><?php echo htmlspecialchars($comment['description']) ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </main>
 
