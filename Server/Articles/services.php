@@ -112,14 +112,20 @@ function updateQuantite($bdd)
     }
 }
 
+function genererCodeActivation() : int {
+    // Génère un nombre aléatoire entre 100000 et 999999 inclusivement
+    return rand(100000, 999999);
+}
+
 function getArticlesFacture($bdd)
 {
     $articles = $bdd->prepare("SELECT * FROM articles LEFT JOIN jeux ON jeux.id = articles.id_jeu WHERE articles.id_membre=?");
     $articles->execute([getIdMembre($bdd)]);
 
     while ($row = $articles->fetch(PDO::FETCH_ASSOC)) {
-        echo "<tr><td>1</td>";
-        echo "<td>". $row['nom'] ."</td>";
+        echo "<tr><td>". $row['nom'] ."</td>";
+        echo "<td>". genererCodeActivation() ."</td>";
+        echo "<td>1</td>";
         echo "<td>". $row['prix'] ."€</td></tr>";
     }
 }

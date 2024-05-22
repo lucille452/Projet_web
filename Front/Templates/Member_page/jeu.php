@@ -51,7 +51,7 @@ $comments = $comments_query->fetchAll(PDO::FETCH_ASSOC);
     <div class="game-details">
         <img src="<?php echo "../../Image/Jeu/jeu". $id .".jpg"?>" alt="">
         <h1 class="game-title"><?php echo getNomJeu($id, $bdd); ?></h1>
-        <p class="quantity-price">Quantité: <?php echo getQuantite($id, $bdd); ?> | Prix: <?php echo getPrix($id, $bdd);?>€</p>
+        <p class="quantity-price">Quantité: <?php echo getQuantite($id, $bdd); ?> | Prix: <?php echo getPrix($id, $bdd);?>€ | Note : <?php echo getNoteMoyenne($id, $bdd) != 0 ? getNoteMoyenne($id, $bdd).'/5' : "aucune note";?></p>
         <p class="description"><?php echo getDescription($id, $bdd);?></p>
         <form action="" method="post">
             <input type="hidden" name="id" value="<?php echo $id; ?>">

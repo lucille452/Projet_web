@@ -25,6 +25,10 @@ main {
     height: 20px;
 }
 
+p {
+    color: var(--clr-tertiary);
+}
+
 #add_jeu_btn {
     background-color: var(--clr-primary);
     border: none;

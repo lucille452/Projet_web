@@ -2,9 +2,8 @@
 
 function addJeu($bdd, $nom, $description, $quantite, $prix)
 {
-    $codeActivation = genererCodeActivation();
-    $newJeux = $bdd->prepare("INSERT INTO jeux(nom, description, quantité, prix, code_activation) VALUES (?, ?, ?, ?, ?)");
-    $newJeux->execute([$nom, $description, $quantite, $prix, $codeActivation]);
+    $newJeux = $bdd->prepare("INSERT INTO jeux(nom, description, quantité, prix) VALUES (?, ?, ?, ?)");
+    $newJeux->execute([$nom, $description, $quantite, $prix]);
 }
 
 function addImage($bdd) {
@@ -46,22 +45,18 @@ function deleteJeu($bdd, $id)
     $deleteJeux->execute([$id]);
 }
 
-function genererCodeActivation() {
-    // Génère un nombre aléatoire entre 100000 et 999999 inclusivement
-    return rand(100000, 999999);
-}
-
 function getJeux($bdd)
 {
     $jeux = $bdd->query("SELECT * FROM jeux");
 
     while ($row = $jeux->fetch(PDO::FETCH_ASSOC)) {
+        $noteMoyenne = getNoteMoyenne($row['id'], $bdd);
         echo "<div class='jeu'><h2>". $row['nom'] ."</h2>";
         echo "<div class='crud'><button id='showModifier". $row['id'] ."'><img src='../../../Front/Image/bouton-modifier.png'></button>";
         echo "<button id='showSupprimer". $row['id'] ."'><img src='../../../Front/Image/supprimer.png'></button></div>";
         echo "<div class='precision'><h3>Quantité : ". $row['quantité'] ."</h3>";
         echo "<h3>Prix : ". $row['prix'] ."€</h3>";
-        echo "<h3>Code d'Activation : ". $row['code_activation'] ."</h3></div>";
+        echo "<h3>Note moyenne : " . ($noteMoyenne != 0 ? htmlspecialchars($noteMoyenne) . "/5" : "aucune note") . "</h3>";
         echo "<p>". $row['description'] ."</p></div>";
         dialogModifier($row['nom'], $row['quantité'], $row['prix'], $row['code_activation'], $row['description'], $row['id']);
         dialogSupprimer($row['nom'], $row['id']);
@@ -132,4 +127,24 @@ function getPrix($id, $bdd)
     $prix = $bdd->prepare("SELECT prix FROM jeux WHERE id=?");
     $prix->execute([$id]);
     return $prix->fetchColumn();
+}
+
+function getNoteMoyenne($id, $bdd) : float
+{
+    $avis = $bdd->prepare("SELECT note FROM jeux LEFT JOIN avis ON jeux.id = avis.id_jeu WHERE jeux.id= ?");
+    $avis->execute([$id]);
+
+    $total = 0;
+    $count = 0;
+
+    while ($avi = $avis->fetch(PDO::FETCH_ASSOC)) {
+        $count ++;
+        $total += $avi['note'];
+    }
+
+    if ($count == 0) {
+        return  0;
+    }
+
+    return round($total/$count, 1);
 }
