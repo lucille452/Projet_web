@@ -120,6 +120,6 @@ function getArticlesFacture($bdd)
     while ($row = $articles->fetch(PDO::FETCH_ASSOC)) {
         echo "<tr><td>1</td>";
         echo "<td>". $row['nom'] ."</td>";
-        echo "<td>". $row['prix'] ."</td></tr>";
+        echo "<td>". $row['prix'] ."€</td></tr>";
     }
 }
