@@ -58,7 +58,7 @@ function getJeux($bdd)
         echo "<h3>Prix : ". $row['prix'] ."€</h3>";
         echo "<h3>Note moyenne : " . ($noteMoyenne != 0 ? htmlspecialchars($noteMoyenne) . "/5" : "aucune note") . "</h3>";
         echo "<p>". $row['description'] ."</p></div>";
-        dialogModifier($row['nom'], $row['quantité'], $row['prix'], $row['code_activation'], $row['description'], $row['id']);
+        dialogModifier($row['nom'], $row['quantité'], $row['prix'], $row['description'], $row['id']);
         dialogSupprimer($row['nom'], $row['id']);
     }
 }
@@ -77,7 +77,7 @@ function dialogSupprimer($nom, $id)
           </dialog>";
 }
 
-function dialogModifier($nom, $quantite, $prix, $code, $description, $id)
+function dialogModifier($nom, $quantite, $prix, $description, $id)
 {
     echo  "<dialog id='modDialog". $id ."' style='color: #e2b946;'>
               <form action='' method='post'>
@@ -92,8 +92,6 @@ function dialogModifier($nom, $quantite, $prix, $code, $description, $id)
                   <input type='number' name='quantite' value='". $quantite ."'></br>
                   <label><b>Prix :</b></label></br>
                   <input type='number' name='prix' value='". $prix ."'></br>
-                  <label><b>Code d'Activation :</b></label></br>
-                  <input type='number' name='code' value='". $code ."'></br>
                   <label><b>Description :</b></label></br>
                   <textarea name='description' rows='8' cols='90'>".htmlspecialchars($description, ENT_QUOTES)."</textarea>
                 <input type='submit' name='modifier' value='Enregistrer'>
