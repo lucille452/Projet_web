@@ -28,7 +28,7 @@ $jeux_query = $bdd->query("SELECT COUNT(id) AS total FROM jeux");
 $jeux_data = $jeux_query->fetch(PDO::FETCH_ASSOC);
 $nbrJeux = $jeux_data['total'];
 
-$comments_query = $bdd->prepare("SELECT description, note FROM avis WHERE id_jeu = ?");
+$comments_query = $bdd->prepare("SELECT * FROM avis WHERE id_jeu = ?");
 $comments_query->execute([$id]);
 $comments = $comments_query->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -73,9 +73,11 @@ $comments = $comments_query->fetchAll(PDO::FETCH_ASSOC);
                 <input type="submit" name="addComment" value="Soumettre">
             </form>
             <h2>Commentaires</h2>
-            <?php foreach ($comments as $comment): ?>
+            <?php foreach ($comments as $comment):
+                $membre = $bdd->prepare("SELECT prenom FROM membres WHERE id=?");
+                $membre->execute([$comment['id_membre']])?>
                 <div class='comment'>
-                    <p>Note : <?php echo htmlspecialchars($comment['note']) ?>/5</p>
+                    <p>De : <?php echo htmlspecialchars($membre->fetchColumn()) ?> | Note : <?php echo htmlspecialchars($comment['note']) ?>/5</p>
                     <p><?php echo htmlspecialchars($comment['description']) ?></p>
                 </div>
             <?php endforeach; ?>
