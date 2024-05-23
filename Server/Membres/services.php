@@ -4,6 +4,10 @@ function addMembre($bdd, $nom, $prenom, $mail, $dateNaissance, $mdp) {
     $newMembre = $bdd->prepare("INSERT INTO membres(nom, prenom, adresse_mail, date_naissance, mot_de_passe) VALUES (?,?,?,?,?) ");
     $newMembre->execute([$nom, $prenom, $mail, $dateNaissance, $mdp]);
 
+    session_start();
+    $_SESSION['mail'] = $mail;
+    $_SESSION['mdp'] = $mdp;
+
     header("Location: ../Member_page/accueil_membre.php");
 }
 
