@@ -75,13 +75,13 @@ include "../../../Server/Pages/accueil_admin.php";
                     <rect x="350" y="100" width="40" height="200" fill="#00484f" />
 
                     <!-- Ajouter des chiffres au-dessus des barres -->
-                    <text x="70" y="190" font-size="12" text-anchor="middle">15</text>
-                    <text x="120" y="140" font-size="12" text-anchor="middle">20</text>
-                    <text x="170" y="170" font-size="12" text-anchor="middle">17</text>
-                    <text x="220" y="160" font-size="12" text-anchor="middle">22</text>
-                    <text x="270" y="130" font-size="12" text-anchor="middle">22</text>
-                    <text x="320" y="180" font-size="12" text-anchor="middle">22</text>
-                    <text x="370" y="90" font-size="12" text-anchor="middle">22</text>
+                    <text x="70" y="190" font-size="12" text-anchor="middle">1</text>
+                    <text x="120" y="140" font-size="12" text-anchor="middle">8</text>
+                    <text x="170" y="170" font-size="12" text-anchor="middle">4</text>
+                    <text x="220" y="160" font-size="12" text-anchor="middle">6</text>
+                    <text x="270" y="130" font-size="12" text-anchor="middle">9</text>
+                    <text x="320" y="180" font-size="12" text-anchor="middle">2</text>
+                    <text x="370" y="90" font-size="12" text-anchor="middle">10</text>
                 </svg>
                 <h3>ventes ces 7 derniers jours</h3>
             </div>

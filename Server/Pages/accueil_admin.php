@@ -31,5 +31,9 @@ function getVentesTotales($bdd)
 
 function getRevenus7jours($bdd)
 {
+    $revenuTotaux = $bdd->query("SELECT revenu_totaux FROM tableau_de_bord");
+    $data = $revenuTotaux->fetchColumn();
+
+    echo "<h2 class='h2'>". $data/2 ."&nbsp;€</h2>";
 
 }
